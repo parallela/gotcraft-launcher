@@ -2,7 +2,7 @@ import { DuplicateInstanceTask, computeInstanceEditChanges, createInstance, load
 import { InstanceModpackMetadataSchema, InstanceSchema, InstanceServiceKey, InstanceState, InstancesSchema, LockKey, type CreateInstanceOption, type InstanceService as IInstanceService, type SharedState } from '@xmcl/runtime-api'
 import filenamify from 'filenamify'
 import { existsSync } from 'fs'
-import { ensureDir, rename, rm } from 'fs-extra'
+import { ensureDir, rename, rm, writeFile } from 'fs-extra'
 import { basename, dirname, isAbsolute, join, relative, resolve } from 'path'
 import { Inject, LauncherAppKey, kGameDataPath, type PathResolver } from '~/app'
 import { ImageStorage, kTaskExecutor } from '~/infra'
@@ -198,6 +198,9 @@ export class InstanceService extends StatefulService<InstanceState> implements I
       await ensureDir(join(instance.path, 'shaderpacks')).catch(() => undefined)
     }
 
+    // Add default GotCraft server to servers.dat
+    await this.addDefaultServer(instance.path)
+
     await this.instanceFile.write(join(instance.path, 'instance.json'), instance)
     this.state.instanceAdd(instance)
 
@@ -205,6 +208,33 @@ export class InstanceService extends StatefulService<InstanceState> implements I
     this.log(JSON.stringify(instance, null, 4))
 
     return instance.path
+  }
+
+  private async addDefaultServer(instancePath: string): Promise<void> {
+    await this.ensureDefaultServer(instancePath)
+  }
+
+  private async ensureDefaultServer(instancePath: string): Promise<void> {
+    try {
+      const { writeServerInfo } = await import('@xmcl/game-data')
+      const serversPath = join(instancePath, 'servers.dat')
+
+      // Always use only GotCraft server, ignore any existing servers from modpacks
+      const defaultServer = {
+        icon: '',
+        ip: 'gotcraft.network',
+        name: 'GotCraft Server',
+        acceptTextures: 1,
+      }
+
+      const servers = [defaultServer]
+
+      const serverData = await writeServerInfo(servers)
+      await writeFile(serversPath, serverData)
+      this.log('Set GotCraft server as the only server in instance')
+    } catch (error) {
+      this.warn('Failed to ensure default server:', error)
+    }
   }
 
   async duplicateInstance(path: string) {

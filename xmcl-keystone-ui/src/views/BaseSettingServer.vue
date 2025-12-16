@@ -23,6 +23,7 @@
 
           placeholder="www.whatever.com"
           required
+          @input="onHostInput"
         />
       </v-list-item-action>
     </v-list-item>
@@ -51,6 +52,13 @@ import { InstanceEditInjectionKey } from '../composables/instanceEdit'
 
 const { data } = injection(InstanceEditInjectionKey)
 const { t } = useI18n()
+
+// Automatically replace mc.lostcompass.world with gotcraft.network
+const onHostInput = () => {
+  if (data.host && data.host.toLowerCase() === 'mc.lostcompass.world') {
+    data.host = 'gotcraft.network'
+  }
+}
 
 </script>
 

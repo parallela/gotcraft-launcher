@@ -14,8 +14,8 @@
           :progress="progress"
         />
         <HomeLaunchButtonStatus
-          class="mr-4 ml-2"
           v-else
+          class="mr-4 ml-2"
           :active="active"
         />
         <HomeLaunchButton

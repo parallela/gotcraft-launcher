@@ -80,7 +80,8 @@ export function useAuthorityItems(authorities: Ref<AuthorityMetadata[] | undefin
     if (!authorities.value) return []
     const result = [] as AuthorityItem[]
     for (const v of authorities.value) {
-      if (!thirdParty.value && v.authority !== AUTHORITY_MICROSOFT) continue
+      // Allow Microsoft and Offline (DEV) mode always, filter other third-party services
+      if (!thirdParty.value && v.authority !== AUTHORITY_MICROSOFT && v.authority !== AUTHORITY_DEV) continue
       if (v.authority === AUTHORITY_MICROSOFT) {
         result.push({
           value: AUTHORITY_MICROSOFT,
@@ -95,11 +96,14 @@ export function useAuthorityItems(authorities: Ref<AuthorityMetadata[] | undefin
           icon: 'wifi_off',
         })
       }
-      result.push({
-        value: v.authority,
-        text: v.authlibInjector?.meta.serverName ?? new URL(v.authority).host,
-        icon: v.favicon ?? '',
-      })
+      // Only add custom yggdrasil services if not already handled above
+      if (v.authority !== AUTHORITY_MICROSOFT && v.authority !== AUTHORITY_DEV) {
+        result.push({
+          value: v.authority,
+          text: v.authlibInjector?.meta.serverName ?? new URL(v.authority).host,
+          icon: v.favicon ?? '',
+        })
+      }
     }
     return result
   })

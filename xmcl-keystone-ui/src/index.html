@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>X Minecraft Launcher</title>
+    <title>GotLauncher</title>
     <link rel="stylesheet" href="./assets/google.font.css">
     <link rel="stylesheet" href="./assets/preload.css">
     <script src="http://launcher/flights"></script>
     <style>
         .unloaded {
-            background-color: rgb(18, 18, 18);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             height: 100vh;
             width: 100vw;
             min-width: 100vw;
@@ -18,16 +18,24 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
             overflow: hidden;
         }
-        @keyframes pulse {
-            0%,
+
+        .unloaded img {
+            animation: fadeInScale 1.5s ease-in-out;
+            max-width: 200px;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
             100% {
                 opacity: 1;
-            }
-            50% {
-                opacity: 0.5;
+                transform: scale(1);
             }
         }
     </style>

@@ -1,7 +1,7 @@
 import { ElectronController } from '@/ElectronController'
 import { darkIcon, darkTray, lightIcon, lightTray } from '@/utils/icons'
 import { BaseService } from '@xmcl/runtime/app'
-import { app, Menu, Tray, nativeTheme, nativeImage, MenuItemConstructorOptions } from 'electron'
+import { app, Menu, Tray, nativeTheme, nativeImage, MenuItemConstructorOptions, shell } from 'electron'
 import { ControllerPlugin } from './plugin'
 import { kSettings } from '@xmcl/runtime/settings'
 
@@ -44,6 +44,13 @@ export const trayPlugin: ControllerPlugin = function (this: ElectronController) 
         type: 'normal',
         click: () => {
           this.openMultiplayerWindow()
+        },
+      },
+      {
+        label: 'Join Discord',
+        type: 'normal',
+        click: () => {
+          shell.openExternal('https://discord.gotcraft.dev')
         },
       },
       {
@@ -170,8 +177,8 @@ export const trayPlugin: ControllerPlugin = function (this: ElectronController) 
 
   this.app.on('app-booted', (man) => {
     if (app.dock) {
-      app.dock.setIcon(nativeTheme.shouldUseDarkColors ? man.iconSets.darkDockIcon : man.iconSets.dockIcon)
+      app.dock.setIcon(nativeTheme.shouldUseDarkColors ? darkIcon : lightIcon)
     }
-    this.tray?.setImage(getTrayImage(man.iconSets.darkTrayIcon, man.iconSets.trayIcon))
+    this.tray?.setImage(getTrayImage(darkTray, lightTray))
   })
 }

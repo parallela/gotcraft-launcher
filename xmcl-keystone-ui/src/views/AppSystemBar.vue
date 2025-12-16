@@ -39,9 +39,7 @@
       :text="count === 0 ? t('task.empty') : t('task.nTaskRunning', { count })"
       @click="showTaskDialog()"
     />
-    <AppSystemBarAvatar
-      v-if="!noUser"
-    />
+    <!-- Removed AppSystemBarAvatar - now in sidebar -->
     <AppSystemBarBadge
       v-if="tutor"
       id="tutor-button"
@@ -49,14 +47,6 @@
       :text="t('help')"
       can-hide-text
       @click="tutor.start()"
-    />
-    <AppSystemBarBadge
-      v-if="!noDebug"
-      id="feedback-button"
-      icon="bug_report"
-      :text="t('feedback.name')"
-      can-hide-text
-      @click="showFeedbackDialog"
     />
 
     <span class="flex h-full shrink grow-0 p-0">
@@ -110,7 +100,6 @@ const props = defineProps<{
 const { appBarColor, blurAppBar } = injection(kTheme)
 const { maximize, minimize, close, hide } = windowController
 const { shouldShiftBackControl, hideWindowControl } = useWindowStyle()
-const { show: showFeedbackDialog } = useDialog('feedback')
 const { show: showTaskDialog } = useDialog('task')
 const { t } = useI18n()
 const { count } = useTaskCount()

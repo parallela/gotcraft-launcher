@@ -1,14 +1,13 @@
 <template>
-  <div class="relative">
+  <div class="relative w-full flex justify-center">
+
     <AppSideBarGroupItemIndicator :state="overState" />
-    <v-list-item
+    <div
       v-context-menu="getItems"
       v-shared-tooltip.right="() => ({ text: name, items: runtimes })"
-      push
-      link
       draggable
-      class="non-moveable sidebar-item flex-1 flex-grow-0 px-2"
-      :class="{ 'v-list-item--active': path === selectedInstance }"
+      class="sidebar-instance-item cursor-pointer transition-all duration-300"
+      :class="{ 'active': path === selectedInstance }"
       @click="navigate"
       @dragover.prevent
       @dragstart="onDragStart"
@@ -18,15 +17,11 @@
       @dragleave="onDragLeave"
       @drop="onDrop"
     >
-      <v-list-item-avatar
-        size="48"
-        class="transition-all duration-300 hover:rounded"
-        large
-      >
+      <div class="w-10 h-10 rounded-lg overflow-hidden transition-all duration-300 hover:rounded-xl">
         <v-img
           v-if="!dragging"
-          width="54"
-          height="54"
+          width="40"
+          height="40"
           :src="favicon"
           @dragenter="onDragEnter"
           @dragleave="onDragLeave"
@@ -35,9 +30,8 @@
           v-else
           type="avatar"
         />
-      </v-list-item-avatar>
-      <v-list-item-title>{{ name }}</v-list-item-title>
-    </v-list-item>
+      </div>
+    </div>
   </div>
 </template>
 <script lang="ts" setup>
@@ -125,3 +119,24 @@ const onDragStart = (e: DragEvent) => {
 const { dragging, overState, onDragEnd, onDragEnter, onDragLeave, onDragOver, onDrop } = useGroupDragDropState(emit, computed(() => props.inside))
 
 </script>
+
+<style scoped>
+.sidebar-instance-item {
+  @apply relative flex items-center justify-center;
+}
+
+.sidebar-instance-item.active {
+  @apply ring-2 ring-mc-emerald rounded-lg;
+}
+
+.sidebar-instance-item.active::after {
+  content: '';
+  @apply absolute inset-0 bg-mc-emerald/20 rounded-lg pointer-events-none;
+}
+</style>
+
+<style>
+.ring-mc-emerald {
+  --tw-ring-color: rgb(0, 245, 66);
+}
+</style>

@@ -100,7 +100,7 @@ const feedbackChannels = computed(() => [
     description: t('feedback.discordDescription'),
     icon: 'discord',
     color: 'indigo darken-2',
-    link: 'https://discord.gg/W5XVwYY7GQ',
+    link: 'https://discord.gotcraft.dev',
     target: 'browser',
     buttonText: t('feedback.discordJoin')
   }

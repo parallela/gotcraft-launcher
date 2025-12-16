@@ -9,7 +9,7 @@
     <AppSystemBar />
     <div class="relative flex h-full overflow-auto">
       <AppSideBar />
-      <main class="relative inset-y-0 right-0 flex max-h-full flex-col overflow-auto">
+      <main class="relative inset-y-0 right-0 flex max-h-full flex-col overflow-auto ml-20 pt-0">
         <transition name="fade-transition" mode="out-in">
           <router-view class="z-2" />
         </transition>
@@ -18,7 +18,6 @@
     <!-- <AppDropDialog /> -->
     <AppContextMenu />
     <AppNotifier />
-    <AppFeedbackDialog />
     <AppTaskDialog />
     <AppAddInstanceDialog />
     <AppShareInstanceDialog />
@@ -38,7 +37,6 @@
     <div class="relative flex h-full overflow-auto">
       <Setup @ready="onReady" />
     </div>
-    <AppFeedbackDialog />
   </v-app>
 </template>
 
@@ -64,7 +62,6 @@ import AppAddInstanceDialog from '@/views/AppAddInstanceDialog.vue'
 import AppBackground from '@/views/AppBackground.vue'
 import AppContextMenu from '@/views/AppContextMenu.vue'
 import AppExportServerDialog from '@/views/AppExportServerDialog.vue'
-import AppFeedbackDialog from '@/views/AppFeedbackDialog.vue'
 import AppGameExitDialog from '@/views/AppGameExitDialog.vue'
 import AppInstallSkipDialog from '@/views/AppInstallSkipDialog.vue'
 import AppInstanceDeleteDialog from '@/views/AppInstanceDeleteDialog.vue'

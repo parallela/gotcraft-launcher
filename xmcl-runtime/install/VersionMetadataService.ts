@@ -1,12 +1,12 @@
 import { VersionMetadataService as IVersionMetadataService, VersionMetadataServiceKey } from '@xmcl/runtime-api'
 import { Inject, LauncherAppKey } from '~/app'
 import { AbstractService, ExposeServiceKey } from '~/service'
-import { LauncherApp } from '../app/LauncherApp'
+import { LauncherApp } from '~/app'
 
 @ExposeServiceKey(VersionMetadataServiceKey)
 export class VersionMetadataService extends AbstractService implements IVersionMetadataService {
   private latest = {
-    release: '1.21.8',
+    release: '1.21.10',
     snapshot: '21w37a',
   }
 

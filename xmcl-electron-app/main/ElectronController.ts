@@ -17,9 +17,10 @@ import { plugins } from './controllers'
 import defaultApp from './defaultApp'
 import { definedLocales } from './definedLocales'
 import { createI18n } from './utils/i18n'
-import { darkIcon } from './utils/icons'
+import { darkIco, darkIcon } from './utils/icons'
 import { getLoginSuccessHTML } from './utils/login'
 import { createWindowTracker } from './utils/windowSizeTracker'
+import { platform } from 'os'
 
 export class ElectronController implements LauncherAppController {
   protected windowsVersion?: { major: number; minor: number; build: number }
@@ -70,7 +71,7 @@ export class ElectronController implements LauncherAppController {
         action: 'allow',
         overrideBrowserWindowOptions: {
           vibrancy: enableTranslucency && this.app.platform.os === 'osx' ? 'sidebar' : undefined, // macOS vibrancy
-          icon: nativeTheme.shouldUseDarkColors ? man.iconSets.darkIcon : man.iconSets.icon,
+          icon: platform() === 'win32' ? darkIco : darkIcon,
           titleBarStyle: this.getTitlebarStyle(),
           trafficLightPosition: this.app.platform.os === 'osx' ? { x: 14, y: 10 } : undefined,
           minWidth,
@@ -295,7 +296,7 @@ export class ElectronController implements LauncherAppController {
       const config = await tracker.getConfig()
 
       const win = new BrowserWindow({
-        icon: nativeTheme.shouldUseDarkColors ? man.iconSets.darkIcon : man.iconSets.icon,
+        icon: platform() === 'win32' ? darkIco : darkIcon,
         titleBarStyle: this.getTitlebarStyle(),
         trafficLightPosition: this.app.platform.os === 'osx' ? { x: 14, y: 10 } : undefined,
         minWidth: 400,
@@ -379,7 +380,7 @@ export class ElectronController implements LauncherAppController {
       backgroundColor: enableTranslucency ? undefined : man.backgroundColor, // Transparent when translucency is enabled
       vibrancy: enableTranslucency && this.app.platform.os === 'osx' ? 'sidebar' : undefined, // macOS vibrancy
       backgroundMaterial: this.getBackgroundMaterial(enableTranslucency), // Windows mica/acrylic
-      icon: nativeTheme.shouldUseDarkColors ? man.iconSets.darkIcon : man.iconSets.icon,
+      icon: platform() === 'win32' ? darkIco : darkIcon,
       titleBarStyle: this.getTitlebarStyle(),
       trafficLightPosition: this.app.platform.os === 'osx' ? { x: 14, y: 10 } : undefined,
       webPreferences: {

@@ -62,15 +62,6 @@
       @input="error = undefined"
       @keypress.enter="onLogin"
     />
-    <v-text-field
-      v-else
-      v-model="data.uuid"
-      outlined
-      prepend-inner-icon="fingerprint"
-      :placeholder="uuidLabel"
-      :label="uuidLabel"
-      @keypress.enter="onLogin"
-    />
 
     <div
       v-if="allowDeviceCode"

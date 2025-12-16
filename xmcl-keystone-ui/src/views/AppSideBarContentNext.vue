@@ -1,15 +1,11 @@
 <template>
-  <div class="h-full overflow-auto">
-    <v-list
-      nav
-      dense
-      class="ml-1 gap-1 flex flex-col flex-grow-0 justify-start overflow-auto px-2"
-    >
+  <div class="h-full overflow-auto w-full">
+    <div class="flex flex-col items-center gap-3 w-full">
       <template v-if="isValidating">
         <v-skeleton-loader
           v-for="i in 5"
           :key="i"
-          class="non-moveable my-2 ml-[6px]"
+          class="my-1"
           type="avatar"
         />
       </template>
@@ -31,27 +27,18 @@
         />
       </template>
 
-      <v-list-item
-        push
-        class="non-moveable"
-        v-shared-tooltip.right="_ => t('instances.add')"
+      <button
+        v-shared-tooltip.right="() => t('instances.add')"
         @click="showAddInstance()"
+        class="instance-add-btn"
       >
-        <v-list-item-avatar
-          id="create-instance-button"
-          size="48"
-          class="bg-[rgba(80,80,80,0.4)] transition-all duration-300 hover:rounded-xl hover:bg-green-500"
-          large
-        >
-          <v-icon class="text-3xl">
+        <div class="w-10 h-10 bg-[rgba(80,80,80,0.4)] rounded-lg transition-all duration-300 hover:rounded-xl hover:bg-green-500 flex items-center justify-center">
+          <v-icon size="20">
             add
           </v-icon>
-        </v-list-item-avatar>
-
-        <v-list-item-title>{{ t('instances.add') }}</v-list-item-title>
-      </v-list-item>
-      <v-spacer />
-    </v-list>
+        </div>
+      </button>
+    </div>
     <SimpleDialog
       :width="500"
       color="primary"
@@ -116,3 +103,9 @@ function doCopy() {
 }
 
 </script>
+
+<style scoped>
+.instance-add-btn {
+  @apply w-full flex justify-center items-center;
+}
+</style>

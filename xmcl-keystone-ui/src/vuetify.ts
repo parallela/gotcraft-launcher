@@ -103,8 +103,14 @@ export const vuetify = new Vuetify({
   theme: {
     themes: {
       dark: {
-        primary: colors.green,
-        accent: colors.green.accent3,
+        primary: colors.cyan,
+        accent: colors.cyan.accent3,
+        secondary: colors.cyan.darken1,
+      },
+      light: {
+        primary: colors.cyan,
+        accent: colors.cyan.accent3,
+        secondary: colors.cyan.darken1,
       },
     },
   },

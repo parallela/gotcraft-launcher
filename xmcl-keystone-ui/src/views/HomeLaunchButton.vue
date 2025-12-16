@@ -29,19 +29,12 @@
         </v-icon>
         {{ text }}
         <v-icon
-          v-if="!loading && icon"
+          v-if="icon"
           right
           class="pl-3 text-2xl"
         >
           {{ icon }}
         </v-icon>
-        <v-progress-circular
-          v-if="loading"
-          class="v-icon--right"
-          indeterminate
-          :size="20"
-          :width="2"
-        />
       </v-btn>
     </v-badge>
     <v-menu

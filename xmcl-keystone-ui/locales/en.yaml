@@ -461,6 +461,7 @@ installVersion:
   jar: Install Version Jar
   json: Install Version Json
   name: Install Minecraft Client {version}
+
 instance:
   addServer: Add Server
   changeIcon: Change Icon
@@ -1376,6 +1377,7 @@ server:
   hostHint: The host (with port) of the server
   hostRequired: Please enter the server ip address
   ipAddress: IP Address
+  copyAddress: Copy Address
   maxPlayers: Max Players
   motd: Server MOTD
   name: Server | Servers
@@ -1860,6 +1862,7 @@ version:
   checkIntegrity: Check Integrity
   name: Version | Versions
   notInstalled: Version is not installed
+  selector: Select Version
 versionType:
   alpha: Alpha
   beta: Beta

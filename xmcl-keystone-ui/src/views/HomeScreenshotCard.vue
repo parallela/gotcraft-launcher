@@ -20,53 +20,53 @@
         {{ randomPlayScreenshot ? 'shuffle' : 'repeat' }}
       </v-icon>
     </v-btn>
-    <v-carousel
-      hide-delimiters
-      :height="height"
-      show-arrows-on-hover
-      :show-arrows="display.length > 0"
-      cycle
-      interval="5000"
-      class="rounded"
-    >
-      <template v-if="display.length > 0">
-        <v-carousel-item
-          v-for="(i, idx) of display"
-          :key="i"
-          class="cursor-pointer"
-          @click="show(i, idx)"
-        >
-          <img
-            :src="i"
-            draggable="true"
-            @dragstart.stop="onDragStart($event, i)"
-            class="w-full h-full object-cover"
-          />
-          <div
-            class="absolute w-full bottom-2 flex justify-center items-center justify-center z-10"
-          >
-            <div>
-              <AppImageControls :image="i" />
-            </div>
-          </div>
-        </v-carousel-item>
-      </template>
-      <template v-else>
-        <v-carousel-item
-          :key="-1"
-        >
-          <v-sheet
-            color="transparent"
-            class="flex h-full items-center justify-center"
-          >
-            <v-icon left>
-              image
-            </v-icon>
-            {{ t('screenshots.empty') }}
-          </v-sheet>
-        </v-carousel-item>
-      </template>
-    </v-carousel>
+<!--    <v-carousel-->
+<!--      hide-delimiters-->
+<!--      :height="height"-->
+<!--      show-arrows-on-hover-->
+<!--      :show-arrows="display.length > 0"-->
+<!--      cycle-->
+<!--      interval="5000"-->
+<!--      class="rounded"-->
+<!--    >-->
+<!--      <template v-if="display.length > 0">-->
+<!--        <v-carousel-item-->
+<!--          v-for="(i, idx) of display"-->
+<!--          :key="i"-->
+<!--          class="cursor-pointer"-->
+<!--          @click="show(i, idx)"-->
+<!--        >-->
+<!--          <img-->
+<!--            :src="i"-->
+<!--            draggable="true"-->
+<!--            @dragstart.stop="onDragStart($event, i)"-->
+<!--            class="w-full h-full object-cover"-->
+<!--          />-->
+<!--          <div-->
+<!--            class="absolute w-full bottom-2 flex justify-center items-center justify-center z-10"-->
+<!--          >-->
+<!--            <div>-->
+<!--              <AppImageControls :image="i" />-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </v-carousel-item>-->
+<!--      </template>-->
+<!--      <template v-else>-->
+<!--        <v-carousel-item-->
+<!--          :key="-1"-->
+<!--        >-->
+<!--          <v-sheet-->
+<!--            color="transparent"-->
+<!--            class="flex h-full items-center justify-center"-->
+<!--          >-->
+<!--            <v-icon left>-->
+<!--              image-->
+<!--            </v-icon>-->
+<!--            {{ t('screenshots.empty') }}-->
+<!--          </v-sheet>-->
+<!--        </v-carousel-item>-->
+<!--      </template>-->
+<!--    </v-carousel>-->
   </v-card>
 </template>
 <script lang="ts" setup>

@@ -186,7 +186,7 @@ export class LaunchService extends AbstractService implements ILaunchService {
     const minMemory: number | undefined = options.minMemory
     const maxMemory: number | undefined = options.maxMemory
 
-    const launcherName = `X Minecraft Launcher (${this.app.version})`
+    const launcherName = `GotLauncher (${this.app.version})`
     const javawPath = join(dirname(javaPath), process.platform === 'win32' ? 'javaw.exe' : 'javaw')
     const validJavaPath = await this.#isValidAndExeucatable(javawPath) ? javawPath : javaPath
     const prepend = normalizeCommandLine(options.prependCommand)

@@ -89,6 +89,7 @@
       v-if="version.changelog"
       :key="`${version.id}-changelog`"
       class="col-span-13 select-text"
+      :style="{ marginTop: '0.5rem' }"
     >
       <div
         :style="{ borderColor: getColorCode(getColorForReleaseType(version.versionType)) }"
