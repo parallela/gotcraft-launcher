@@ -1,0 +1,1788 @@
+AppAddInstanceDialog:
+  choiceTitle: Multiple launch profiles detected. Please select one to import.
+  configTitle: Конфигурация
+  createTitle: Създаване на игра
+  downloadedNotification: The modpack {name} downloaded. Do you want to create instance
+    for it?
+  serverTitle: Въведете адреса на вашия сървър
+AppShareInstanceDialog:
+  alterDownloadDescription: If you don't want to mess up current instance. You can
+    also create a new instance from your peer's config. Click the button below to
+    create instance.
+  baseInfo: Основни настройки
+  cancelShare: Отказване на споделянето
+  description: After you share the profile, other place can download these files through
+    your PC.
+  downloadDescription: Please verify the files your peer provided to you. Select the
+    file you want to download. It will be placed to current instance {name}.
+  downloadNotifyTitle: Изтегляне на инстанция от {user}
+  downloadTitle: Изтегляне на файлове от други участници
+  downloadToLocal: Изтегляне в текущата инстанция
+  filesToDownload: Изберете файлове за изтегляне
+  filesToShare: Изберете файлове за споделяне
+  instanceShare: '{user} just shared the current instance to you'
+  share: Споделяне
+  shareNotifyTitle: Споделяне на инстанция
+  shareTitle: Споделяйте файлове на играта с други играчи
+BaseSetting: {}
+BaseSettingGeneral:
+  title: Общи
+FeedTheBeast:
+  search: Търсене в FTB
+FeedTheBeastCard: {}
+FeedTheBeastProject:
+  changelog: Дневник на промените
+  details: Детайли
+  install: Инсталиране на {version}
+  overview: Преглед
+  versions: Версии
+HomeJavaIssueDialog:
+  incompatibleJava: Несъвместима Java
+  incompatibleJavaHint: Current Java might be incompatible with selected Minecraft!
+  missingJava: Липсва Java
+  missingJavaHint: 'The Launcher cannot detect any java in your computer. You can:'
+  needDownloadHint: Cannot find proper Java version in your computer. Recommend to
+    download a new one.
+  optionAutoDownload:
+    message: Launcher will download and install Java from Mojang's source for you.
+    name: Автоматично изтегляне
+  optionManualDownload: {}
+  optionSelectJava:
+    message: Maybe the launcher doesn't find your Java. You can tell the launcher
+      where it is.
+    name: Изберете Java във вашия компютър
+  optionSwitch:
+    disabled: There is no Java {version} found in database now!
+    message: Use existed Java {version} in your PC
+    name: Превключване към {version}
+  recommendedVersionHint: The {version} recommend to use Java with range {range}。
+  selectMatchedHint: Found proper local Java versions. You can choose these local
+    Javas.
+  selectSecondaryHint: Found some local Java versions, but they might not suitable
+    to the criteria. You can still use them to launch, but this issue will still appear.
+HomeLaunchMultiInstanceDialog:
+  confirm: Да, стартирай
+  description: You are launching multiple instances of Minecraft. Are you sure?
+  title: Множество инстанции
+HomeSyncButton: {}
+HomeSyncDialog:
+  pull: Издърпване
+  push: Избутване
+HomeSyncDialogPull:
+  failText: Fail to fetch update. {url}
+  refresh: Обновяване
+  update: Актуализация
+HomeSyncDialogPush:
+  authError: Bad user authentication. Please make sure you have privilege to upload
+    files of the server!
+  refresh: Обновяване
+  unknownError: Неизвестна грешка на сървъра. Моля, опитайте отново.
+  upload: Качване на инстанция
+SettingMigrationDialog:
+  selectRootDirectory: Избор на главна директория
+add: Добавяне
+ago:
+  day: '{duration} day ago | {duration} days ago'
+  hour: '{duration} hour ago | {duration} hours ago'
+  minute: '{duration} minute ago | {duration} minutes ago'
+  second: '{duration} second ago | {duration} seconds ago'
+askAICrash:
+  copyPrompt: Копирайте подканата, за да попитате AI
+  description: Let AI help you to understand the game crash! Follow the instructions
+    below to ask AI about this game crash!
+  selectPlatform: Open an AI platform and paste the prompt you just copied.
+authProfileAddedNotification: Auth Profile {name} е добавен
+author: Автор
+back: Назад
+baseSetting:
+  title: Настройки на инстанцията
+browse: Преглед
+browseApp:
+  createShortcut: Създаване на пряк път
+  default: ПОДРАЗБИРАНЕ
+  delete: Изтриване
+  launch: Стартиране и задаване като по подразбиране
+browseApps: Преглед на потребителския интерфейс на стартовия панел
+cancel: Отказ
+checkUpdate:
+  name: Проверка за актуализация
+color: Цвят
+confirm: Старт
+copyClipboard:
+  success: Копиране в клипборда
+create: Създаване
+curseforge:
+  authors: Автори
+  category: Категория
+  createdDate: Дата на създаване
+  downloadOnly: Изтегляне
+  file:
+    gameVersion: Версия на играта
+    modLoader: Зареждане на мод
+  install: Инсталиране
+  installTo: Инсталиране в {path}
+  installToStorage: Инсталиране в хранилището
+  lastUpdate: Дата на последната актуализация
+  project:
+    description: Описание
+    files: Файлове
+    images: Изображения
+  recentFiles: Последни файлове
+  releasedDate: Дата на издаване
+  search: Търсене
+  totalDownloads: Общо изтегляния
+curseforgeCard: {}
+curseforgeCategory:
+  API and Library: API и библиотеки
+  Addons: Добавки
+  Adventure: Приключение
+  Adventure and RPG: Приключения и RPG
+  Animated: Анимация
+  Armor, Tools, and Weapons: Броня, инструменти и оръжия
+  Armor， Tools， and Weapons: Броня, инструменти и оръжия
+  Combat / PvP: Състезания/PVP
+  Cosmetic: Външен вид/декорация
+  Creation: Творчески режим
+  Data Packs: Пакет данни
+  Education: Образование
+  Exploration: Разузнаване
+  Extra Large: Голям размер
+  FTB Official Pack: Официалният FTB пакет
+  Fabric: Текстил
+  FancyMenu: FancyMenu
+  Font Packs: Шрифтове
+  Food: Храна
+  Game Map: Карти за игра
+  Hardcore: Hardcore
+  MCreator: MCreator
+  Magic: Магия
+  Map Based: Въз основа на картата
+  Map and Information: Карти и информация
+  Medieval: Средновековие
+  Mini Game: Мини-игри
+  Miscellaneous: Разни
+  Mod Support: Поддръжка на модове
+  Modded World: Мод за светове
+  Modern: Модерен
+  Multiplayer: Мултиплейър
+  Parkour: Паркур
+  Photo Realistic: Реалистична фотография
+  Puzzle: Пъзели
+  QoL: QoL
+  Quests: Куестове
+  Redstone: Redstone
+  Sci-Fi: Научна фантастика
+  Server Utility: Инструмент за сървър
+  Skyblock: SkyBlock
+  Small / Light: Съвсем малко
+  Steampunk: Steampunk
+  Storage: Съхранение
+  Survival: Оцеляване
+  Tech: Технология
+  Technology: Технология
+  Traditional: Традиционен
+  Twitch Integration: Twitch интеграция
+  Utility & QoL: Помощни програми и Qol
+  Vanilla+: Vanilla+
+  World Gen: Генератор на мир
+dataMigration:
+  apply: Прилагане на настройка
+  directoryCriteriaHint: Please make sure your new directory location is an EMPTY
+    directory!
+  migrationDestinationIsFile: Migration destination is a file! Please select an empty
+    directory!
+  migrationDestinationIsNotEmptyDirectory: Migration destination is not an empty directory!
+    Please make sure you select an empty directory!
+  migrationNoPermission: No permission to rename the old directory to new directory!
+    Please make sure the launcher has access to both places!
+  placeholder: Моля, щракнете тук, за да изберете директория
+  setRootCause: You will lose your data (Maps, Resource Packs, Mods) if you close
+    the Launcher at this process!
+  setRootDescription: This will change the root data folder of this launcher and minecraft.
+  setRootTitle: Задайте ново място за съхранение
+  unknownError: Unknown Error! Please retry or contact the developer!
+  waitReload: Migrating data. Please don't close the Launcher or you will lose your
+    data.
+delete:
+  name: Изтриване на {name}
+  'no': Не
+  'yes': Изтриване
+dependencies:
+  embedded: Вграден
+  incompatible: Несъвместим
+  name: Зависимости
+  optional: Незадължителен
+  required: Задължителен
+description: Описание
+detail: Детайл
+diagnosis:
+  badInstall:
+    message: Click to try to reinstall this version.
+    name: Неправилна инсталация на {version}
+  corruptedAssets:
+    message: Стартовият панел ще инсталира активи за вас
+    name: 'Corrupted asset: {name} | Corrupted asset {name} | {count} assets corrupted'
+  corruptedAssetsIndex:
+    message: Стартиращият панел ще изтегли индекс на активи за вас
+    name: Corrupted assets index file of {version}.
+  corruptedLibraries:
+    message: Стартовият панел ще инсталира библиотеки за вас
+    name: 'Corrupted library: {name} | Corrupted library: {name} | {count} libraries
+      corrupted'
+  corruptedVersionJar:
+    message: Щракнете, за да инсталирате тази версия
+    name: Corrupted version jar for Minecraft %{version}.
+  corruptedVersionJson:
+    message: Щракнете, за да инсталирате тази версия
+    name: Corrupted version %{version} json.
+  incompatibleJava:
+    message: You can ask Launcher to download it for you.
+    name: The java version {javaVersion} is not suitable for {version}!
+  instanceFiles:
+    description: The instance installation includes {counts} files.
+    title: Незавършена инсталация на инстанция
+  invalidJava:
+    message: Click to use another java to launch.
+    name: Невалидно местоположение на java.
+  missingAssets:
+    message: Стартовият панел ще инсталира активи за вас
+    name: 'Missing asset: {name} | Missing asset: {name} | Missing %{count} assets.'
+  missingAssetsIndex:
+    message: Стартиращият панел ще изтегли индекс на активи за вас
+    name: Missing assets index file of {version}.
+  missingAuthlibInjector: {}
+  missingJava:
+    message: Щракнете, за да разрешите този проблем
+    name: Не може да се намери Java за стартиране на Minecraft!
+  missingLibraries:
+    message: Стартовият панел ще инсталира библиотеки за вас
+    name: Missing {name} Library | Missing {name} Library | Missing {count} Libraries
+      | Missing {count} Libraries
+  missingVersion:
+    message: Щракнете, за да инсталирате тази версия
+    name: The version {version} is not installed!
+  missingVersionJar:
+    message: Щракнете, за да инсталирате тази версия
+    name: Missing version jar for Minecraft %{version}
+  unzipFileNotFound:
+    description: Не може да се намери {file}
+    title: Файлът с пакета с модове не е намерен
+difficulty:
+  easy: Лесен
+  hard: Труден
+  normal: Нормален
+  peaceful: Мирен
+disable: Деактивиране
+disk:
+  available: Наличен
+  used: Използван
+download: Изтегляне
+downloadCount: '{count} изтегляния'
+downloadUpdate: Изтегляне на актуализация
+duration:
+  day: '{duration} day | {duration} days'
+  hour: '{duration} hour | {duration} hours'
+  minute: '{duration} minute | {duration} minutes'
+  name: Изтриване на {name}
+  'no': Не
+  second: '{duration} second | {duration} seconds'
+  'yes': Да, сър.
+edit: Редактиране
+enable: Активиране
+env:
+  select:
+    all: Избор на всички
+    fit: Избор на подходящи
+    none: Без избор
+error:
+  name: Грешка | Грешки
+errors:
+  BadForgeInstallerJarError: Cannot parse forge installer jar file. Maybe the forge
+    has new installer file format? Contact developers if this issue persists.
+  BadInstanceType: 'Not a valid instance: {type}'
+  BodyTimeoutError: Време за изчакване на HTTP тялото
+  ChecksumNotMatchError: Checksum not matched! Expected {expect}. Actual {actual}.
+  ConnectTimeoutError: Времето за връзка със сървъра изтече.
+  DNSNotFoundError: Грешка при търсене на DNS
+  DatabaseNotOpened: Database is not opened! The launcher won't work properly! Please
+    select a data directory the launcher can access. You can try to reset the data
+    root in setting page.
+  DiskIsFull: Your disk is full! Cannot write anything to disk! All features might
+    not be functional!
+  DownloadAggregateError: Неуспешно изтегляне на файл.
+  DownloadFileSystemError: Error during accessing the download file path. Please ensure
+    the launcher has permission to write on it.
+  HeadersTimeoutError: Време за изчакване на HTTP заглавката
+  NotFoundError: 404 Не е намерен
+  SocketError: Грешка в сървърния сокет
+eula:
+  body: By checking the checkbox button, you are indicating your agreement to Minecraft's
+    {eula}.
+exception:
+  http: HTTP request to {url} failed. Status code {statusCode}. {code}. Please retry
+    or check your network. If this error persists, please send a report to developer
+    team.
+existed: Съществува
+exportModpackTarget:
+  curseforge: Curseforge файл
+  github: Github файл
+  modrinth: Modrinth файл
+  override: Презаписване (суров) файл
+extensions:
+  mrpack: Modrinth Modpack
+  zip: Zip файл
+fabricVersion:
+  disable: Деактивиране на Fabric
+  empty: No Fabric Version for Minecraft {version}
+  showSnapshot: Показване на моментна снимка
+  stable: Стабилен
+  unstable: Нестабилен
+feedback:
+  channel: Канали
+  description: I found a Bug or I want to make a suggestion
+  discord: Discord
+  discordDescription: Присъединяване към Discord канал
+  discordJoin: Присъединяване
+  generateReport: Генериране на отчет
+  generateSaveAs: Запазване на доклада в
+  github: Github проблем
+  githubDescription: Open an Github Issue to tell your thought
+  githubOpenIssue: Github
+  hint: Click the button to create the report and contact the developer team. The
+    report will contain your device info including operating system type, version,
+    user name (in your os), etc.
+  kook: Kook
+  kookDescription: Kook is an alternate app for discord for Chinese Mainland users
+  name: Обратна връзка
+  qq: QQ група
+  qqDescription: 'Enter the feedback QQ group and direct talk with authors. Group
+    Number: {number}'
+  qqEnterGroup: Присъединяване
+fileDetail:
+  fileSize: Размер на файла
+  filesize: Размер на файла
+  hash: Хаш
+filter: Филтър
+filterLocalOnly: Показване само на инсталираните
+finish: Край
+forgeConfig:
+  hint: Please at least launch the game with this mod once, so that we can detect
+    its config file!
+forgeVersion:
+  common: Общи
+  disable: Деактивиране на Forge
+  empty: Forge doesn't have any release for Minecraft {version}
+  latest: Последен
+  name: Forge
+  recommended: Препоръчително
+  showBuggy: Показване на бъгави
+  showRecommendedAndLatestOnly: Само препоръчани и последни
+  version: Версия на Forge
+gameSetting: {}
+gameType:
+  adventure: Приключенски режим
+  creative: Творчески режим
+  spectator: Режим на зрител
+  survival: Режим на оцеляване
+help: Помощ
+home: Начало
+importModpack:
+  failed: Импортирането на {modpack} е неуспешно
+  name: Импортиране на пакет модове
+  success: Импортирането на {modpack} е успешно
+importResource: Импортиране на ресурс
+install: Инсталиране
+installAssets:
+  asset: Инсталиране на {count} ресурса
+  assetIndex: Проверка на файла с индекс на активи
+  name: Инсталиране на файлове с активи
+installAuthlibInjector: Инсталиране на authlib-injector
+installCurseforgeFile: Инсталиране на Curseforge файл
+installFabric:
+  name: Инсталиране на Fabric
+installForge:
+  downloadInstaller: Изтегляне на инсталатор
+  library: Инсталиране на библиотека {lib}
+  name: Инсталиране на Forge
+  postProcessing: Пост-обработка
+installInstance:
+  file: Актуализиране на файл на инстанцията {file}
+  link: Копиране или свързване на {count} файла
+  name: Актуализиране на инстанция
+  resolve: Разрешаване на конфигурацията на инстанцията
+  unzip: Разархивиране на {count} файла
+installJre:
+  decompress: Decompress JRE files to folder
+  download: Изтегляне на компресиран JRE файл
+  name: Инсталиране на Java Runtime Library
+installLabyMod:
+  asset: Инсталиране на ресурс {name}
+  json: Генериране на JSON {version}
+  name: Инсталиране на LabyMod
+installLibraries:
+  library: Инсталиране на библиотека
+  name: Инсталиране на библиотеки
+installModpack:
+  deploy: Разполагане
+  download:
+    file: Изтегляне на файл
+    name: Изтегляне
+  name: Инсталиране на пакет модове
+  unpack: Разопаковане на пакет с модове
+installModrinthFile:
+  name: Инсталиране на Modrinth
+installOptifine:
+  download: Изтегляне на Optifine Universal
+  jar: Генериране на Jar
+  json: Генериране на Json
+  name: Инсталиране на Optifine
+installResource:
+  fail: Неуспешно инсталиране на {file}
+  success: Инсталирането на ресурс {file} е успешно
+installVersion:
+  jar: Инсталиране на версия Jar
+  json: Инсталиране на версия Json
+  name: Инсталиране на Minecraft клиент {version}
+instance:
+  addServer: Добавяне на сървър
+  changeIcon: Промяна на икона
+  contents: Съдържание
+  current: Текуща инстанция
+  delete: Изтриване на игра
+  deleteFailed: Неуспешно изтриване на инстанцията
+  deleteFailedPermission: Друга програма е заела файла
+  deleteHint: The instance data will be removed from the disk forever. Are you sure?
+  duplicate: Дублиране на игра
+  duplicatedName: Дублирано име
+  fileApi: URL адресът на API на сървъра за синхронизиране на файлове
+  fileApiHint: The url to synchronize instance files from a remote config server.
+  fullscreen: Цял екран
+  gameVersion: Версия на играта
+  height: Височина
+  icon: Икона на профила
+  iconHint: The icon could be a file or internet url link.
+  iconUrl: URL адрес на иконата
+  includeVersion: Включване на версия | Включване на версии
+  installModpack: Актуализиране на инстанцията от пакета с модове
+  lastPlayed: Последно играно
+  launchArguments: Предварителен преглед на аргументите за стартиране
+  launchServer: Стартиране на localhost сървър
+  linkFileDesc: This will overwrite instance local {file} with the global {file}.
+    Are you sure to link it?
+  linkFileTitle: Are you sure to link {file}?
+  mcOptions: Настройки на Minecraft
+  mcOptionsHint: Допълнителни аргументи за стартиране на Minecraft
+  name: Име на профила
+  nameHint: Името на пакета модификации
+  nameNoCyrillic: Името не може да съдържа кирилица
+  neverPlayed: Никога не е играно
+  openCrashReportFolder: Отваряне на папката с отчети за сривове
+  openLogFolder: Отваряне на папката с логове
+  playtime: Време за игра
+  preExecCommand: Команда за предварително изпълнение
+  preExecCommandHint: Команда за изпълнение преди стартиране на Minecraft
+  prependCommand: Добавяне на команда
+  prependCommandHint: This will prepend this command before all the launch commands
+  requireName: Името е задължително
+  resolution: Резолюция
+  resolutionEnabled: Активиране на персонализирана разделителна способност
+  resolutionPreset: Предварително зададена разделителна способност
+  showInstance: Показване на папката с играта
+  updates: Актуализации
+  useSharedOptions: Използване на споделени настройки на играта
+  useSharedOptionsDesc: This will link the options.txt to a shared file across instance
+  useSharedServersList: Използване на споделен списък със сървъри
+  useSharedServersListDesc: This will link the servers.dat to a shared file across
+    instance
+  versionHint: Версията на Minecraft на тази игра
+  vmOptions: JVM опции
+  vmOptionsHint: Допълнителни аргументи за предаване към JVM
+  vmVar: Променливи на средата
+  vmVarHint: Click + button to add environemnt variables
+  width: Ширина
+instanceAge:
+  older: По-стар
+  threeDay: След три дни
+  today: Днес
+instanceDiscover:
+  gameFolder: Открийте {count} папки с игри
+  instanceFolder: Намерени {count} инстанции
+instanceFileOperation:
+  add: Добавяне
+  backup-add: Замяна (архивиране)
+  backup-remove: Премахване (архивиране)
+  keep: Запазване
+  remove: Премахване
+instanceInstallSkip:
+  ignore: Игнориране
+  skip: Пропускане
+  title: Потенциален повреден източник на файлове
+  warning: Some files are downloaded multiple times with checksum unmatching. This
+    may be due to the fact that the original checksum is incorrect. Please check.
+    If you confirm the current files are valid, you can skip the validation check.
+instanceSetting:
+  disableAuthlibInjector: Деактивиране на authlib injector
+  disableAuthlibInjectorDescription: If you are using third-party skin system. The
+    authlib injector can help you to display skin in game.
+  disableElyByAuthlib: Disable ely.by's authlib replacement
+  disableElyByAuthlibDescription: Ely.by has a unique authlib replacement to display
+    skin universally in any server.
+  fastLaunch: Турбо стартиране
+  fastLaunchHint: Ignore the user status and existing unfixed problems
+  hideLauncher: Скриване на стартера след стартиране
+  icon: Избор на изображение
+  showLog: Показване на лога на Minecraft
+  showLogHint: This will popup a window to stream Minecraft log after game started
+instanceTemplate:
+  curseforge: Това е Curseforge modpack
+  ftb: Това е FTB modpack
+  importing: Импортиране на шаблон
+  mcbbs: This is a MCBBS modpack
+  modpack: Това е необработен пакет модификации
+  modrinth: This is a Modrinth modpack
+  preview: Предварителен преглед на пакет модове
+  title: Настройка на шаблон
+instanceUpdate:
+  basic: Актуализация на настройката
+  files: Актуализации на файлове
+  loaderChanged: The modloader of this instance has been changed. The old modloader
+    is {modloader}, and the new modloader is {newModloader}.
+  summary: Add {add} files. Remove {remove} files. Keep {keep} files.
+  title: Актуализиране на инстанция
+  update: Стартиране на актуализация
+instances:
+  add: Създаване на игра
+  addCurseForgeDescription: Import from curseforge data folder. You need to select
+    curseforge's root data folder
+  addDescription: Създайте нова инстанция от нулата
+  addMMCDescription: Import existing MultiMC instance. You need to select the data
+    folder from MultiMC.
+  addManually: Ръчно създаване
+  addModrinthDescription: Import existing Modrinth instance. You need to select the
+    Modrinth root data folder.
+  addServer: Създаване от сървър
+  addServerDescription: This will create a game directly launch to the server.
+  addTemplate: Създаване от изтеглен пакет с модове
+  addTemplateDescription: Импортиране от изтеглен Modpack
+  addVanilla: Създаване от обикновен Minecraft
+  addVanillaDescription: Import from common .minecraft folder. This will duplciate
+    the original game profile to XMCL.
+  choose: Избор на игра
+  empty: Няма инстанции в тази папка
+  fix: Поправка
+  folder: Папка
+  folderSetting: Настройки на папка
+  importFolder: Импортиране от папка
+  importFolderDescription: Импортиране на Minecraft в стартера
+  loadingFiles: Зареждане на файлове на пакета с модове
+  refreshServers: Обновяване на сървъри
+items:
+  count: '{count} елементи'
+  total: '{total} общо'
+java:
+  allocatedLong: Използване на системната Java по подразбиране
+  allocatedShort: Автоматично разпределено
+  browse: Преглед на изпълнимия файл на Java
+  importFromFile: Импортиране на Java от файл
+  invalid: Невалидно местоположение на Java
+  location: Местоположение на Java
+  maxMemory: Максимална памет
+  memory: Памет на Java
+  memoryAuto: Автоматично
+  memoryManual: Ръчно
+  memoryUnassigned: Откачване
+  minMemory: Минимална памет
+  modifyInstance: Промяна на пътя на Java
+  noMemory: Не ограничавайте използването на паметта
+  refresh: Обновяване на локалната Java
+  systemMemory: 'System Free Memory: {free} / {total}'
+labyMod:
+  disable: Деактивиране на LabyMod
+  empty: LabyMod does not support current Minecraft
+launch:
+  cancel: Отказ
+  createShortcut: Създаване на пряк път
+  kill: Спиране
+  killServer: Прекъсване на localhost сървъра
+  launch: Стартиране
+  launchAnyway: Стартиране така или иначе
+launchBlocked:
+  ignore: Принудително стартиране
+  launchBadVersion:
+    description: The version {version} json is breaking. Maybe re-install this version?
+    title: Лош JSON на версията
+  launchGeneralException:
+    description: Някои грешки причиняват неуспешно стартиране.
+    title: Стартирането е неуспешно
+  launchInvalidJavaPath:
+    description: The selected java is missing or invalid. Please select a new one.
+      <span class="highlight"> {javaPath} </span>
+    title: Невалиден път на Java
+  launchJavaNoPermission:
+    description: The launcher doesn't have permission to execute the java <span class="highlight">
+      {javaPath} </span>. Either change the permission of the java file or raise the
+      permission of launcher.
+    title: Няма разрешение за стартиране
+  launchNoProperJava:
+    description: No proper java can be selected to launch the game. ({javaPath} is
+      invalid?)
+    title: Не е намерен подходящ Java
+  launchNoVersionInstalled:
+    description: Cannot resolve version <span class="highlight">{version}</span> to
+      launch.
+    title: Не е избрана версия
+  launchSpawnProcessFailed:
+    description: Please check your java, or give more permissions to the launcher
+      and retry. If this still doesn't work, please contact the developers.
+    title: Неуспешно стартиране на игровия процес
+  launchUserStatusRefreshFailed:
+    description: Не може да се опресни текущото състояние на избрания потребител.
+    title: Неуспешно валидиране на потребителския статус
+  unexpectedText: This is unexpected. You can restart the launcher to mitigate the
+    issue. Please contact author if this issue happens again.
+  userAcquireMicrosoftTokenFailed: Acquire Microsoft token failed. Please check retry
+    or check your Microsoft account.
+  userCheckGameOwnershipFailed: Failed to check Minecraft ownership. Please retry
+    or check your network.
+  userExchangeXboxTokenFailed: Failed to exchange xbox token from Microsoft token.
+    Please retry or check your network.
+  userLoginMinecraftByXboxFailed: Failed to login Minecraft with xbox token. Please
+    retry or check your network.
+launchFailed:
+  crash: Играта се срина!!
+  description: There is no crash report. This this the error log and latest log.
+  elyByAuthlib:
+    description: The Ely.by authlib replacement was used for Minecraft version {version},
+      but this version may not be fully compatible.
+    suggestion: You can disable Ely.by's authlib replacement in the instance settings
+      to avoid this issue.
+    title: Проблем със съвместимостта на Ely.by Authlib
+  failedToLaunch: Стартирането не успя
+  latestLog: Последен регистър
+  title: Играта излезе с необичаен код
+launchPreExecuteCommandFailed:
+  description: 'The pre-execute command failed with an error: {error}. Please check
+    the command and try again.'
+  title: Неуспешна команда за предварително изпълнение
+launchStatus:
+  assigningMemory: Разпределяне на памет
+  elyByWarning: Ely.by authlib replacement is enabled. Some Minecraft versions may
+    not be compatible and could crash. You can disable it in instance settings if
+    issues occur.
+  exit: Излизане от играта?
+  injectingAuthLib: Настройване на AuthLib на трета страна
+  launching: Стартиране...
+  launchingSlow: Still launching... Starting graphics engine can be slow...
+  refreshingUser: Обновяване на потребителския токен
+  spawningProcess: Създаване на процес
+launcherUpdate:
+  alreadyLatest: Актуален
+  installAndQuit: Рестартиране за инсталиране
+  noUpdateAvailable: Няма налични актуализации
+  reinstall: Преинсталиране
+  updateToThisVersion: Изтегляне и инсталиране
+liteloader:
+  name: LiteLoader
+localVersion:
+  auto: Автоматично изчислено
+  delete: Изтриване на локалната версия
+  deleteDescription: This operation will delete the local version json & jar. You
+    have to redownload it if you want to use it again.
+  empty: Няма инсталирана версия
+  hint: Стартирайте директно конкретна локална версия
+  refresh: Обновяване на версии
+  reinstallDescription: If you think this version installation has some problems,
+    you can try to reinstall it.
+  reinstallTitle: Преинсталиране на {version}
+  title: Локална версия | Локални версии
+logLevel:
+  error: Грешка
+  info: Информация
+  success: Успех
+  warning: Предупреждение
+logView:
+  searchPlaceholder: Търсене в логовете...
+login:
+  dropHint: Drop the link with authcode here to manually login
+  forgetPassword: Забравена парола?
+  login: Влизане
+  manualLoginUrl: If the browser doesn't show up, please click this link to auth!
+  signup: Регистриране
+  signupDescription: Нови за нас?
+  userRelogin: User access token is expired. Please re-login!
+loginError:
+  acquireMicrosoftTokenFailed: Fail to acquire Microsoft token. This might be a network
+    issue. Please retry.
+  badNetworkOrServer: Please check your network connectivity! Or maybe the authentication
+    server is down!
+  checkOwnershipFailed: Fail to check game ownership. Please try again.
+  connectionReset: Fail to login since connection is reset by server
+  fetchMinecraftProfileFailed: 'Fail to fetch Minecraft profile: {reason}'
+  illegalEmail: Имейлът трябва да е валиден
+  invalidCredentials: Invalid credentials. Invalid username or password.
+  loginMinecraftByXboxFailed: Fail to exchange Minecraft token by Xbox token. Please
+    make sure you have Minecraft in Xbox, or retry.
+  loginXboxAgeRestricted: Fail to login Xbox due the the age issue. Please make sure
+    the age is set for your Microsoft account and the age is above 18.
+  loginXboxFailed: Fail to login Xbox by Microsoft token. Please make sure you have
+    an independent Xbox account to your Microsoft account. Please try again.
+  noProfileForNewUser: No game profile found! If you are a new Minecraft user, please
+    login at least one time in Minecraft official launcher.
+  requestFailed: Login failed, we do not know the exact reason. Please retry.
+  requireEmail: Необходим е имейл
+  requirePassword: Необходима е парола
+  requireUsername: Необходимо е потребителско име
+  timeout: Login timeout. Please retry or check your network.
+logsCrashes:
+  crashes: Отчети за сривове
+  logs: Дневници
+  placeholder: Не са намерени файлове
+  title: Регистрационни файлове или отчети за сривове
+me:
+  games: Моите игри
+  modpacks: Моите пакети с модове
+  news: Новини
+  recentPlay: Последни игри
+  versions: Инсталирани версии
+  viewByDate: Преглед по дата
+  viewByFolder: Преглед по папка
+minecraftVersion:
+  empty: Не може да се заредят версиите на Minecraft
+  name: Версия на Minecraft
+  release: Издаване
+  showAlpha: Показване на моментна снимка
+  snapshot: Снимка
+mod:
+  acceptVersion: Приемам {version}
+  applyGroupRules: Прилагане на запазени правила за групиране
+  compatible: Съвместим мод.
+  createGroup: Създаване на група
+  currentVersion: Текуща {current}
+  deletion: Изтриване на мод
+  deletionHint: You will lose this mod & its metadata forever. Are you sure you want
+    to delete it? | You will lose these mods & their metadata forever. Are you sure
+    you want to do that?
+  deletionRestHint: И още {rest} мода...
+  denseView: Плътен изглед
+  disableAll: Деактивиране на всички
+  dropHint: Drop mod's .jar/.litemod here to import.
+  duplicatedDetected: '{count} дублирани мода'
+  duplicatedDetectedDescription: Found mods with same mod id but different files.
+    This might cause Minecraft crash. Please select the file you want to keep.
+  enableAll: Активиране на всички
+  enabled: '{count} мода са активирани'
+  filter: Филтриране на модове
+  group: Групиране
+  groupInstalled: Групиране на инсталирани модове
+  groupName: Име на групата
+  groupNameRequired: Името на групата е задължително
+  hasUpdate: Модът има нова версия!
+  hideIncompatible: Скриване на несъвместими модове
+  incompatible: Несъвместим мод.
+  incompatibleHint: Разгледайте отчета си за съвместимост на модове
+  incompatibleHintDescription: Some mods dependencies might be missing. Or some dependencies
+    versions do not matched.
+  manage: Управление
+  maybeCompatible: Може би съвместим.
+  modloaderSelectHint: The mod support following mod loaders. Please select one to
+    install.
+  modloaderSelectNotSupported: Not found {modloader} for Minecraft {minecraft}
+  mods: '{count} мода'
+  name: Мод | Модове
+  newFolder: Нова папка
+  noGroupsFound: Не са намерени групи
+  noGroupsYet: Все още няма групи. Създайте такава!
+  noModLoaderHint: Don't forget to enable a modloader to use mods!
+  openLink: Отворете URL адреса на мода {url}
+  search: Търсене на модове
+  searchGroups: Търсене в групи...
+  searchOnCurseforge: Търсене на {name} в curseforge
+  searchOnMcWiki: Look up {name} in the MC encyclopedia.
+  searchOnModrinth: Search {name} in Modrinth
+  selectOrCreateGroup: Изберете или създайте група
+  showDirectory: Показване на директорията с модове
+  showFile: Show the mod path {file}
+  showInCurseforge: Покажете мода в curseforge
+  showInModrinth: Show {name} in Modrinth
+  switchDefaultSource: Източник на мод по подразбиране
+  syncGroupRules: Запазване на правилата за групиране
+  toUpdate: '{count} актуализации'
+  ungroup: Разгрупиране
+modFilter:
+  clear: Изчистване на филтъра
+  dependenciesInstallOnly: Показване само на липсващи зависимости модове
+  disabledOnly: Показване само на деактивирани модове
+  hasUpdateOnly: Показване само на модове с актуализации
+  incompatibleOnly: Only show incompatible or missing dependencies missing mods
+  source: Източник
+  unusedOnly: Показване само на неизползвани библиотеки модове
+modInstall:
+  archived: '{name} has been archived. {name} will not receive any further updates
+    unless the author decides to unarchive the project.'
+  autoUpgrade:
+    description: You have changed the Minecraft version. Would you like to automatically
+      update compatible mods to versions that match Minecraft {version}?
+    'no': Пропускане
+    title: Актуализиране на модове?
+    'yes': Актуализиране на модовете
+  checkDependencies: Проверка на зависимостите
+  checkUpgrade: Проверка за актуализация на модове
+  checkedDependencies: Проверени зависимости
+  checkedUpgrade: Актуализацията е проверена
+  currentVersion: Избрана версия
+  dependencyHint: Инсталирана е друга версия {version}
+  display: Показване на модовете
+  install: Инсталиране
+  installDependencies: Инсталиране на липсващи зависимости
+  installHint: Will install {file} file with {dependencies} dependencies
+  installed: Инсталиран
+  noVersionSupported: Mod only supports Minecraft {supported}.
+  recommendation: Explore the {first} mods in {modrinth} and {curseforge}!
+  removeUnusedLibraries: Премахване на неизползвани библиотеки модове
+  search: Резултат от търсенето
+  skipVersion: Skip the Mods with different Minecraft version
+  source: Източник на мод
+  switch: Превключване на версията
+  upgrade: Актуализиране на модовете
+modSearch:
+  noLocalModsFound: No local mods found matching your search.
+  noModsFound: Не са намерени модове.
+  noModsInstalled: You don't have any mods installed.
+  searchInMarket: Търсене на {keyword} в Market
+modUpgradePolicy:
+  curseforge: Първо Curseforge
+  curseforgeOnly: Само Curseforge
+  modrinth: Първо Modrinth
+  modrinthOnly: Само Modrinth
+  name: Политика за актуализиране
+modified:
+  reset: Нулиране
+  save: Запазване
+  unsaved: Вашата модификация не е запазена!
+modpack:
+  author: Име на автора
+  authorHint: This might be used to sign an exported modpack (Curseforge)
+  delete:
+    hint: This will delete the modpack {name} with its metadata. Are you sure?
+    title: Изтриване на пакета с модове
+  description: Описание
+  descriptionHint: General description for you modpack. Might be used for exporting
+    as curseforge modpack.
+  dropHint: Drop modpack zip to here to import
+  emitCurseforge: Експортиране на Curseforge Modpack
+  emitMcbbs: Експортиране на MCBBS Modpack
+  emitModrinth: Експортиране на Modrinth Modpack
+  emitModrinthStrict: Строг формат на Modrinth
+  emitModrinthStrictDescription: Only the URLs from 4 domains listed in modrinth document
+    are allowed
+  export: Експортиране като пакет с модове
+  exportDirectory: Директория за експортиране
+  exportDirectoryDescription: The modpack will be exported to Downloads folder by
+    default
+  general: Обща информация
+  includeAssets: Включване на активи
+  includeLibraries: Включване на библиотеки
+  includes: Файлове за включване
+  modpackVersion: Версия на пакета модове
+  name: Modpack | Modpacks
+  overrides: Презаписвания
+  showFile: Показване на файл {file}
+  showInCurseforge: Show {name} in Curseforge
+  showInFtb: Show {name} in FTB
+  showInModrinth: Show {name} in Modrinth
+  url: URL
+  urlHint: The home page url of your modpack
+modpackImportConfirm:
+  description: Detect you drop a file into the launcher. Are you trying to import
+    a modpack?
+  title: Are you trying to import a modpack?
+modrinth:
+  browseUrl: Отваряне в браузър {url}
+  categories:
+    128x: 128x
+    16x: 16x
+    256x: 256x
+    32x: 32x
+    48x: 48x
+    512x+: 512x+
+    64x: 64x
+    8x-: 8x-
+    adventure: Приключение
+    atmosphere: Атмосфера
+    audio: Аудио
+    blocks: Блокове
+    bloom: Разцвет
+    bukkit: Bukkit
+    bungeecord: Bungeecord
+    canvas: Платно
+    cartoon: Карикатура
+    categories: Категории
+    challenging: Предизвикателен
+    colored-lighting: Оцветено осветление
+    combat: Битка
+    core-shaders: Основни шейдъри
+    cursed: Прокълнат
+    datapack: Пакет с данни
+    decoration: Декорация
+    economy: Икономика
+    entities: Същества
+    environment: Околна среда
+    equipment: Оборудване
+    fabric: Текстил
+    fantasy: Фентъзи
+    features: Функции
+    folia: Folia
+    foliage: Растителност
+    fonts: Шрифтове
+    food: Храна
+    forge: Forge
+    game-mechanics: Механика на играта
+    gui: Gui
+    high: Високо
+    iris: Iris
+    items: Предмети
+    kitchen-sink: Всичко в едно
+    library: Библиотека
+    lightweight: Лек
+    liteloader: LiteLoader
+    locale: Локал
+    low: Ниско
+    magic: Магия
+    management: Управление
+    medium: Средно
+    minecraft: Minecraft
+    minigame: Мини игри
+    misc: Разни
+    mobs: Тълпи
+    modded: Модифициран
+    models: Модели
+    modloader: Програма за зареждане на модове
+    multiplayer: Мултиплейър
+    name: Категории
+    neoforge: NeoForge
+    optifine: Optifine
+    optimization: Оптимизации
+    paper: Хартия
+    path-tracing: Проследяване на пътя
+    pbr: PBR
+    performance impact: Въздействие върху производителността
+    potato: Картоф
+    purpur: Purpur
+    quests: Куестове
+    quilt: Quilt
+    realistic: Реалистичен
+    reflections: Отражения
+    resolutions: Резолюции
+    rift: Rift
+    screenshot: Снимка на екрана
+    semi-realistic: Полуреалистичен
+    shadows: Сенки
+    simplistic: Опростен
+    social: Социални
+    spigot: Spigot
+    sponge: Sponge
+    storage: Съхранение
+    technology: Технология
+    themed: Тематичен
+    transportation: Транспорт
+    tweaks: Настройки
+    utility: Помощни
+    vanilla: Vanilla
+    vanilla-like: Подобен на Vanilla
+    velocity: Скорост
+    waterfall: Водопад
+    worldgen: Генериране на свят
+  clientSide: Страна на клиента
+  copyTitle: Copy Text {title} to clipboard
+  createAt: Създаден
+  createCollection: Създаване на колекция
+  description: Описание
+  downloads: Изтегляния
+  environments:
+    all: Всички
+    client: Клиент
+    default: По подразбиране
+    name: Околна среда
+    optional: Незадължителен
+    required: Задължителен
+    server: Сървър
+    unsupported: Не се поддържа
+  externalResources: Външни ресурси
+  featuredVersions: Представени версии
+  followedProjects: Последвани проекти
+  followers: Последователи
+  gallery: Галерия
+  gameVersions:
+    name: Версии на играта
+  headers:
+    status: Статистики
+    support: Поддържа
+    version: Версия
+  issueUrl: Проблем
+  license: Лиценз
+  licenses:
+    name: Лицензи
+  loginHint: The operation requires modrinth to perform. The launcher will open a
+    browser window to login modrinth.
+  loginTitle: Влизане в Modrinth
+  modLoaders:
+    name: Зареждащи модове
+  modpackSource:
+    source: Източник
+  perPage: На страница
+  projectId: Идентификатор на проекта
+  projectMembers: Членове на проекта
+  projectType:
+    mod: Мод
+    modpack: Пакет с модове
+    name: Тип проект
+    resourcePack: Пакет с ресурси
+    shader: Шейдър
+  projects: '{count} проекта'
+  quickSearch: Търсене на {title}
+  searchText: Търсене
+  serverSide: Страна на сървъра
+  sort:
+    downloads: Брой изтегляния
+    follows: Брой последователи
+    newest: Създадени наскоро
+    relevance: Релевантност
+    title: Сортиране по
+    updated: Актуализирани наскоро
+  sourceUrl: Източник
+  technicalInformation: Техническа информация
+  updateAt: Актуализиран
+  versions: Версии
+  wikiUrl: Уики
+modrinthCard:
+  currentVersion: Текуща версия
+  projectHint: "This instance is created by Modrinth modpack from <code class=\"rounded\
+    \ p-1\" style=\"background: rgba(123,123,123,0.2)\">{title}</code> (project id:\n\
+    \      <code class=\"rounded p-1\" style=\"background: rgba(123,123,123,0.2)\"\
+    >{id}</code>)\n"
+multiplayer:
+  allowTurn: Активиране на релейния сървър
+  allowTurnHint: Allow relay server if you cannot connect with your friend. However,
+    using relay server may slow down your connection. Use it with caution.
+  complete: Завършено
+  confirm: Потвърждаване
+  connections: Връзки
+  copied: Копирано!
+  copy: Копиране
+  copyGroupToFriendHint: Let your friends join the group with this id
+  copyLocalHint: '"Please copy the local SDP text and send it to your object to have
+    your object enter this text in the join connection <span>A token can be only used
+    for <span style="color: red; font-weight: bold;">one peer</span>! You cannot send
+    the same token to multiple peers!</span> <br> <span class="hint-text" style="font-style:
+    italic;">If you need to connect multiple peers, you need to create <span style="font-weight:
+    bold; color: rgba(245, 158, 11)">multiple</span> connections.</span>"
+
+    '
+  createLocalToken: Създаване на локален токен
+  currentIpTitle: Открит публичен IP адрес
+  currentNatTitle: 'Текуща мрежа (NAT):'
+  difficultyLevelHint: The level of difficulty creating a connection
+  disconnect: Прекъсване на връзката
+  disconnectDescription: Are you sure you want to disconnect with user {user}({id})?
+  disconnected: откачен
+  enterRemoteToken: Въведете отдалечен токен
+  enterRemoteTokenHint: Once your peer enters your token, you need to enter his token
+    to the text area below. Click confirm to connect.
+  exposedPortDescription: The port you exposed to other peers
+  exposedPorts: Пренасочени портове
+  gatheringIce: '"Please wait for the ICE server to collect enough information about
+    your network. If you are impatient and there is enough information, you can give
+    the current SDP to the other party in advance and click Next Please send the <span
+    class="v-chip v-chip--label v-size--small" style="text-font: bold" >Local Token</span>
+    to your peer, you peer enter your token in <span class="v-chip v-chip--label v-size--small"
+    style="text-font: bold"> Join Connection </span> section. <br> The ICE server
+    might need some time to collect your info to create <span class="v-chip v-chip--label
+    v-size--small" style="text-font: bold">Local token</span>.<br> You do not need
+    to wait until the ICE status is complete. If the token below remains unchanged,
+    you can copy it and send it to your peer."
+
+    '
+  groupId: Идентификатор на група
+  illegalTokenDescription: Illegal token, please make sure the token from your peer
+    is correct
+  initiateConnection: Иницииране на връзка
+  inviteLink: Връзка за покана
+  joinConnection: If your peer has already initiated a connection, you need to Join
+    Connection.
+  joinManual: Присъединяване
+  joinOrCreateGroup: Присъединяване/Създаване на група
+  joinOrCreateGroupHint: Get group id from your friends or create a group
+  kernel: P2P ядро
+  kernelDescription: Use either native WebRTC or node-datachannel. Only switch this
+    when your p2p connection sometime crashes the launcher window.
+  leaveGroup: Напускане на групата
+  localToken: Локален токен
+  manualConnect: Ръчно свързване
+  name: Мултиплейър в LAN
+  networkInfo: Мрежова информация
+  next: Напред
+  otherExposedPortDescription: The port forwarded by {user}
+  placeholder: Connect with other users to play Minecraft on LAN!
+  previous: Предишен
+  receiveHint: After the other party enters your token, your connection will be created
+    automatically. Now you can close the dialog.
+  receiveRemoteTokenHint: Please enter the token from your peer here.
+  remoteToken: Отдалечен токен
+  routerInfo: Информация за рутера
+  sendTokenToRemote: Изпращане на токен към Remote
+  share: Споделяне на конфигурацията на инстанцията
+  sharing: Споделяне на файлове...
+  sharingNotificationBody: You can download or create an instance from {name} shared
+    config.
+  sharingNotificationTitle: A peer is sharing their game config
+  start: Старт
+  startNewP2PConnection: Click the Start button to create a new peer connection
+myStuff: Моите неща
+name: Име
+natType:
+  blocked: Блокиран
+  fullCone: Пълен конус
+  openInternet: Открит интернет
+  restrictNat: Ограничаване на NAT
+  restrictPortNat: Ограничаване на Port NAT
+  symmetricNat: Симетричен NAT
+  symmetricUDPFirewall: Симетрична UDP защитна стена
+  unknown: Неизвестен
+neoForgedVersion:
+  disable: Деактивиране на NeoForged
+  empty: NeoForged does not support {version}
+  name: NeoForged
+news:
+  name: Новини
+  readMore: Прочетете повече
+next: Напред
+'no': Не
+ok: OK
+optifineVersion:
+  disable: Деактивиране на Optifine
+  empty: Optifine does not support Minecraft {version}
+optional: Незадължителен
+peerConnectionState:
+  closed: Затворен
+  connected: Свързан
+  connecting: Свързване
+  disconnected: Прекъсната връзка
+  failed: Неуспешно
+  name: Състояние на връзката
+  new: Нов
+peerGroupState:
+  closed: Не сте в група
+  closing: Затворен
+  connected: Присъединена група
+  connecting: Свързване
+peerIceGatheringState:
+  gathering: Събиране на леден сървър
+peerSignalingState:
+  have-local-offer: Изчаква се описание на партньора
+popular: Популярност
+presence:
+  curseforge: Преглед на CurseForge
+  curseforgeProject: Viewing {name} in curseforge
+  instance: Неактивен в инстанция {instance}
+  instanceSetting: 'Edit Instance Setting: {instance}'
+  mod: Viewing Mods in {instance}
+  modrinth: Преглед на Modrinth
+  modrinthProject: Viewing {name} in Modrinth
+  resourcePack: Viewing Resource Packs in {instance}
+  save: Viewing Saves in {instance}
+  setting: Преглед на страницата с настройки
+  shaderPack: Viewing Shader Packs in {instance}
+  version: Преглед на страницата с версии
+previous: Предишен
+proxy:
+  host: Хост
+  port: Порт
+quiltVersion:
+  disable: Деактивиране на Quilt
+  empty: Quilt does not support Minecraft {version}
+refresh: Обновяване
+refreshResource: Обновяване на ресурси
+remove: Премахване
+resourcepack:
+  available: Наличен
+  compatible: Compatible format {format} with {version}
+  defaultDescription: The default look and feel of Minecraft
+  delete:
+    content: This will remove the resource pack file from disk, and we cannot undo
+      it. Are you sure you want to do this?
+    title: Изтриване на ресурсния пакет
+  dropHint: Drop Resource Pack's folder/zip here to import.
+  enable: Активирани са {count} ресурсни пакета
+  import: Импортиране на пакет с ресурси
+  incompatible: Incompatible Resource Pack format({format}). Fitin {accept}. Current
+    {actual}.
+  independent: Инстанцията използва независима папка за ресурсни пакети
+  manage: Управление на пакети с ресурси
+  name: Ресурсен пакет | Ресурсни пакети
+  searchHint: Търсене на пакети с ресурси
+  searchOnCurseforge: Search {name} in curseforge
+  searchOnModrinth: '@:mod.searchOnModrinth'
+  selectSearchHint: Търсене и избор на ресурсен пакет
+  selected: Избрани пакети с ресурси
+  shared: Инстанцията използва обща папка за ресурсни пакети
+  showDirectory: Показване на директорията на ресурсния пакет
+  showFile: Show resource pack in folder {file}
+  showInCurseforge: Show {name} in curseforge
+  unselected: Неизбрани ресурсни пакети
+save:
+  allowCheats: Разрешаване на мами
+  cheat: Измама
+  copy:
+    cancel: Отказ на копирането
+    confirm: Стартиране на копирането
+    description: Please select destination profile(s) you want the save to go.
+    name: Копиране на запис
+    title: Копиране на запазването в друг профил
+  copyFrom:
+    cancel: Отказ
+    confirm: Стартиране на копирането
+    description: You can deploy save to this instance from other instances, or from
+      managed resources (curseforge)
+    from: От {src}
+    fromProfile: От други инстанции
+    fromResource: От управлявани ресурси
+    title: Импортиране на запазване от управляван източник
+  createNew: Създаване на нов свят
+  createdWorlds: Имате {count} свята
+  deleteHint: This operation cannot be reverted. You will lose the save data forever.
+    Are you sure you want to delete this save?
+  deleteTitle: Изтриване на запазената игра
+  detail: Повече информация
+  difficulty: Трудност
+  dropHint: Плъзнете zip файл за запазване тук, за да импортирате
+  edit:
+    confirm: Запазване на промените
+    title: Редактиране на настройките на света
+  export: Експортиране на запис
+  exportMessage: Експортиране на запазването като zip
+  exportTitle: Експортиране на запазената игра
+  gameMode: режим на игра
+  import: Импортиране на запис
+  importMessage: Импортиране на запазване от zip
+  importTitle: Импортиране на запазена игра
+  independent: Инстанцията използва независима папка за запазвания
+  levelName: Име на ниво
+  loadMap: Зареждане на карта
+  manage: Управление на запазените игри
+  mapError: Грешка в картата
+  mapInfo: 'Interactive 3D world preview:'
+  mapLoaded: Картата е заредена
+  mapPreview: Преглед на картата
+  name: Запазване | Запазени игри
+  properties: Свойства на света
+  rendering: Рендиране...
+  search: Търсене на запазени игри
+  seed: Сийд
+  selected: Локални запазени игри
+  shared: Използвайте обща папка за запазване на инстанции
+  showDirectory: Показване на директорията със запазените игри
+  unselected: Споделени запазени игри
+  useCurrent: Използване на текущия свят
+  useMouseRotate: Използвайте мишката, за да завъртите изгледа
+  useScrollZoom: Използвайте скрол колелото, за да увеличите
+  viewSeedMap: Преглед на картата на семената в Chunkbase
+saves: {}
+screenshots:
+  empty: Нямате никакви екранни снимки
+  goto: Отваряне на папка
+  name: Екранни снимки
+  playRandom: Разбъркване
+  playSequence: Игра по ред
+search:
+  favorate: Колекция
+  local: Инсталиран
+  market: Пазар за модове
+server:
+  acceptingMinecraftVersion: Приемане на версия на Minecraft
+  creationHint: Please Fill the server address and ping the server
+  delete: {}
+  error: {}
+  expectedVersions: Поддържани версии
+  export: Експортиране на сървър
+  exportNoFilesHint: No server files found. You can run server on local once to generate
+    some files.
+  exportOption: Опции за експортиране на сървър
+  exportSSHAuthenticationFailed: All authentication methods failed. Please check username/password
+    or private key.
+  exportSSHOptions: SSH опции
+  exportSSHPrivateKeyPath: Път до SSH частен ключ
+  exportSSHRemotePath: Път към отдалечен сървър
+  exportToFolder: Експортиране в папка
+  filterVersion: Филтрирайте Minecraft версията, отговорена от сървъра
+  host: Хост
+  hostHint: The host (with port) of the server
+  hostRequired: Моля, въведете IP адреса на сървъра
+  ipAddress: IP адрес
+  copyAddress: Копиране на адрес
+  maxPlayers: Макс. играчи
+  motd: MOTD на сървъра
+  name: Сървър | Сървъри
+  nogui: Без графичен интерфейс на сървъра
+  onlineMode: Онлайн режим
+  ping: Ping
+  pings: Пингове
+  players: Играчи
+  port: Порт
+  recommendedMinecraftVersion: Версия на Minecraft
+  status: Състояние на сървъра
+  unknown: Неизвестен сървър
+  unknownDescription: Неизвестен сървър. Моля, опреснете
+  upload: Качване на сървър
+  version: Сървърът изисква версия
+  versionHint: Minecraft версията за пинг
+serverStatus:
+  nohost: §4Не може да се намери хост!
+  ping: Пинг...
+  refuse: §4Сървърът отказа!
+  timeout: §4Времето за връзка със сървъра изтече!
+setting:
+  about: Относно
+  allowPrerelease: Изтегляне на предварителна версия
+  allowPrereleaseDescription: Prerelease може да е нестабилен
+  apiSets:
+    auto: Auto (Determine by network)
+    official: Официален (Mojang)
+  appearance: Външен вид
+  appxUpdateHint: The launcher will download and execute installer. If popup installer
+    failed, please run it manually.
+  autoDownload: Автоматично изтегляне
+  autoDownloadDescription: Auto Download Update if it's Available
+  autoInstallOnAppQuit: Автоматично инсталиране
+  autoInstallOnAppQuitDescription: Autoinstall the Update on App Quit
+  backdropBlur: Замъгляване на фона
+  backgroundColorAbove: Показване на цвета на фона като наслагване
+  backgroundColorAboveDescription: This will make background color display above the
+    background image or video.
+  backgroundImage: Фоново изображение
+  backgroundImageBlur: Изображение
+  backgroundImageBlurDescription: Плъзнете, за да замъглите, лесно
+  backgroundImageClear: изчисти
+  backgroundImageDescription: Select an image as background or clear
+  backgroundImageFit:
+    contain: Съдържа
+    cover: Покритие
+    name: Съответствие на изображението
+  backgroundImageUrl: URL адрес на изображението
+  backgroundImageUrlPlaceholder: Enter HTTP/HTTPS URL for image
+  backgroundMusic: Музика за фона на темата
+  backgroundMusicUrl: URL адрес на музиката
+  backgroundMusicUrlPlaceholder: Enter HTTP/HTTPS URL for music
+  backgroundType: Тип фон
+  backgroundTypeDescription: Show special effect on background (This may impact performance)
+  backgroundTypes:
+    halo: Halo
+    image: Изображение
+    none: Няма
+    particle: Частица
+    video: Видео
+  backgroundVideo: Фонов видеоклип
+  backgroundVideoDescription: Изберете или изчистете видео
+  backgroundVideoUrl: URL адрес на видеоклипа
+  backgroundVideoUrlPlaceholder: Enter HTTP/HTTPS URL for video
+  backgroundVideoVolume: сила на звука
+  backgroundVideoVolumeDescription: плъзнете, за да регулирате силата на звука
+  blurAppBar: Замъгляване на лентата с приложения
+  blurMainBody: Замъгляване на основното тяло
+  blurMainBodyDescription: Should the launcher right pane be blurred
+  blurSidebar: Замъгляване на страничната лента
+  browseRoot: Преглед
+  checkUpdate: Проверка за актуализация
+  colorTheme:
+    appBarColor: Лента на приложението
+    backgroundColor: Цвят на фона
+    cardColor: Цвят на картата
+    description: Променете цветовете в темата
+    errorColor: Цвят на грешка
+    name: Цвят на темата и размазване
+    primaryColor: Основен цвят
+    secondaryColor: Вторичен цвят
+    sideBarColor: Странична лента
+    warningColor: Цвят на предупреждение
+  darkTheme: Тема
+  darkThemeDescription: Изберете между тъмна или светла тема
+  developerMode: Режим за разработчици
+  developerModeDescription: Developer Mode is for testing your own mods
+  disableTelemetry: Деактивиране на телеметрията
+  disableTelemetryDescription: XMCL will collect the game launch and user login events.
+  enableDedicatedGPUOptimization: Задаване на специализиран графичен процесор
+  enableDedicatedGPUOptimizationDescription: This option will assign dedicated GPU
+    to Minecraft process.
+  enableDiscord: Активиране на присъствие в Discord
+  enableDiscordDescription: This will update Discord status to the launcher
+  enterUrl: Въведете URL адрес
+  general: Общи
+  githubRelease: Издание в Github
+  globalSetting: Глобална настройка на инстанцията
+  globalSettingHint: Instance will use these settings by default.
+  hideNewsHeader: Скриване на показването на новини
+  instanceTheme:
+    activeDescription: This instance is using a custom theme. You can delete it to
+      use the global theme.
+    description: Enable a custom theme for this instance. This will create a copy
+      of the current global theme.
+    name: Тема на инстанцията
+  language: Език
+  languageDescription: Езикът на дисплея
+  latestVersion: Последна версия
+  layout:
+    default: Оформление по подразбиране
+    focus: Оформление с фокус
+  layoutDescription: Оформлението на потребителския интерфейс на стартовия панел
+  layoutTitle: Оформление
+  linuxEnableDedicatedGPUOptimization: Задаване на специализиран графичен процесор
+  linuxEnableDedicatedGPUOptimizationDescription: This option assigns a dedicated
+    GPU to the Minecraft process.
+  linuxTitlebar: Вградена лента за заглавие
+  linuxTitlebarDescription: Use native linux title bar for launcher
+  location: Местоположение на магазина
+  manualUpdateHint: The version cannot be updated automatically. Please download the
+    launcher again from the official website!
+  maunalUpdateHint: The version cannot be auto-updated. Please redownload the launcher
+    from the website!
+  maxSockets: На хост
+  maxSocketsDescription: Limit the maximum number of sockets to allow per host or
+    for all hosts in total. 0 means no limit.
+  maxSocketsTitle: Макс. HTTP сокети
+  migrateFromOther: Импортиране от друг стартер
+  name: Глобални настройки | Глобални настройки
+  network: Мрежови настройки
+  officialWebsite: Официален уебсайт
+  particleMode:
+    bubble: Балон
+    name: Режим на частиците
+    push: Изпращане
+    remove: Премахване
+    repulse: Отблъскване
+  particleModeDescription: Изберете поведението при щракване на частиците
+  replaceNative: Замяна на вградените библиотеки
+  replaceNativeDescription: Replace native libraries according to your computer's
+    arch.
+  replaceNatives:
+    all: Всички
+    legacy: Само за стара версия
+  resetToDefault: Възстановяване на настройките по подразбиране
+  select: Избор
+  showNewsHeader: Показване на новинарската витрина
+  showRoot: Показване
+  streamerMode: Режим за поточно предаване
+  streamerModeDescription: This will hide your private information like email in launcher.
+  theme:
+    dark: Тъмна тема
+    light: Светла тема
+    system: Използване на системната тема
+  themeExport: Експортиране на тема
+  themeFont: Шрифт
+  themeFontDescription: Change the font of the launcher.
+  themeFontUrl: URL адрес на шрифта
+  themeFontUrlPlaceholder: Enter HTTP/HTTPS URL for font
+  themeImport: Импортиране на тема
+  themeResetFont: Нулиране на шрифта
+  themeSelectFont: Избор на шрифт
+  themeShare: Споделяне на тема
+  themeShareDescription: You can share the theme with your friend.
+  update: Актуализация
+  useBmclAPI: Използване на BMCL API
+  useBmclAPIDescription: Use BMCLAPI to download Minecraft when you are in Chinese
+    Mainland. (This won't affect you if you're not in Chinese Mainland)
+  useProxy: HTTP прокси
+  useProxyDescription: The proxy server address for the http request
+  viewBackgroundMusic: Преглед на музика
+  windowTranslucent: Полупрозрачност на прозореца
+  windowTranslucentDescription: Enable translucent window effect (Mica on Windows
+    11, Acrylic on Windows 10, Vibrancy on macOS). Requires restart.
+settingLabel:
+  global: Глобален
+  globalHint: This setting will follow the global setting
+  local: Локален
+  localHint: This setting is modified by current instance
+setup:
+  account:
+    description: Login your game account. If you don't have one, you can skip it for
+      now.
+    name: Добавяне на акаунт за игра
+    skip: Пропускане засега
+  appearance:
+    name: '@:setting.appearance'
+  dataRoot:
+    description: The data root is not a common .minecraft directory. Since XMCL data
+      directory structure is different from vanilla, we do not recommend to use the
+      common .minecraft directory as a data root.
+    drives: Препоръчване на местоположения
+    name: Задаване на директория за данни
+  defaultLayoutDescription: The default layout is trying to enhance the game "instance"
+    concept. It looks like apps like Discord. It's also inspired by other game launcher
+    apps like Steam, etc.
+  defaultPath: Път по подразбиране
+  error:
+    badDataRoot: Invalid directory for launcher data! Please try another directory!
+    exists: Selected directory is not empty. It's okay but please make sure you backup
+      your data.
+    invalidChar: Path contains invalid characters! It could cause Minecraft fail to
+      start! Plaese only use English characters and symbol!
+    noPermission: Launcher does not have permission to access selected directory!
+      Please try another one.
+    nonDictionary: Selected path is a file! Please select a directory!
+  focusLayoutDescription: The focus layout is the legacy layout of the Minecraft Launcher.
+    It is designed to be used with a single instance or few instances.
+  game:
+    description: Choose existing game directory (.minecraft) to import existing resources.
+      So you can quickly identify the mods, resource packs, etc.
+    name: Импортиране на съществуваща игра
+  locale:
+    description: Select your preferred language if we have it! If you don't see your
+      native language and you want to help, you can visit our Github to submit pull
+      requests to translate!
+    language: Език
+    name: Задаване на език
+  path: Текущ път
+  title: 'Welcome to X Minecraft Launcher. Before start, we need you to '
+shaderPack:
+  deletion: Изтриване на пакет шейдъри
+  deletionHint: This will delete the shader pack file {path} and cannot be reverted.
+  disabled: Деактивирани пакети шейдъри
+  dropHint: Импортиране на пакет шейдъри
+  empty: Няма разпределен пакет шейдъри
+  enable: Използване на {name}
+  enabled: Активирани пакети шейдъри
+  manage: Управление на пакети шейдъри
+  name: Пакет шейдъри
+  noShaderMod: Не е инсталиран шейдър мод
+  noShaderModHint: You cannot use shader without a shader mod
+  noShaderModInstallHint: You need to install one of the following mod to load shader
+    pack.
+  searchHint: Търсене на пакет шейдъри
+  selectSearchHint: Търсене и избор на пакет Shader
+  showDirectory: Показване на директорията на пакета шейдъри
+  showFile: Покажете този пакет шейдъри в папка
+shared:
+  accept: Приемам
+  keepSelected: Запазване на избраното
+  skipForNow: Пропускане засега
+sortBy:
+  alphabetAsc: Сортиране по азбучен ред (възходящо)
+  alphabetDesc: Сортиране по азбучен ред (низходящо)
+  timeAsc: Sort by modification time (ascending)
+  timeDesc: Sort by modification time (descending)
+store:
+  explore: Изследване
+  latestMinecraft: Последна версия на Minecraft
+  name: Пазар за пакети с модове
+  popular: Популярни пакети с модове
+  recentUpdated: Наскоро актуализирани
+summery: Обобщение
+tag:
+  create: Създаване на таг
+  createSelected: Създаване на маркер за избраното
+  newTag: Нов таг
+task:
+  available: Наличен
+  cancelled: Отменен
+  clear: Изчистване на завършени задачи
+  compatible: The {format} format is compatible with {version}
+  connection:
+    connected: Свързан
+    free: Безплатно
+    pending: В очакване
+    queued: В опашка
+    running: Изпълняваща се връзка
+    size: общ брой
+  connections: Мрежови връзки
+  delete:
+    content: "This will delete the texturepack file from the disk, and we won't be\
+      \ able to recover it.\n Are you sure you can recover it?"
+    title: Изтриване на текстурен пакет
+  dropHint: Drag and drop the folder/zip textures here to import.
+  empty: Няма изпълняващи се задачи
+  enable: 'Texturepacks included: {count}'
+  failed: Неуспешно
+  import: Импортиране на текстурен пакет
+  incompatible: Incompatible textstack format ({format}). Matching {accept}. Current
+    {actual}.
+  manage: Текстурен пакет
+  manager: Диспечер на задачите
+  nTaskRunning: '{count} задачи се изпълняват'
+  name: Задача | Задачи
+  pause: Пауза
+  searchOnCurseforge: Search {name} on curseforge
+  searchOnModrinth: '@:mod.searchOnModrinth'
+  selected: Любими текстурни пакети
+  showFile: Open the texturepack {file} in the folder
+  showInCurseforge: Show {name} on curseforge
+  unselected: Неизбрани текстурни пакети
+theme:
+  selectImage: Избор на изображение
+  selectMusic: Избор на музика
+  selectVideo: Избор на видео
+  title: X Minecraft Launcher
+title: X Minecraft Launcher
+transportType:
+  host: Кандидат за хост
+  prflx: Кандидат за равностоен рефлекс
+  relay: Релеен кандидат
+  srflx: Кандидат за сървърен рефлекс
+turnRegion:
+  fr: Френски
+  guangzhou: Гуанджоу, Китай
+  hk: Хонг Конг
+  liaoning: Ляонин, Китай
+  po: Полша
+tutorial:
+  feedbackDescription: If you encounter any problems, please click this button to
+    send feedback!
+  hideNewsHeaderDescription: You can see the News showcase on the left. Clicking this
+    button can hide this showcase.
+  instance:
+    iconDescription: Щракнете, за да промените иконата.
+    iconTitle: Икона на инстанция
+    javaDescription: Изберете или сменете Java версия.
+    javaImportDescription: Импортиране на java от локално съхранение.
+    javaImportTitle: Импортиране на java
+    javaTitle: Списък с Java
+  instanceAddDescription: Click this button to import existing Minecraft instance
+    or create a new one from scratch or modpack.
+  instanceSelectDescription: Clicking this button will navigate to the page to select
+    game and read news.
+  launchDescription: Click this button to install or launch the game.
+  mod:
+    defaultSourceDescription: You can choose the source of mods details here. There
+      are the mods published to both Modrinth and Curseforge. If you want to switch
+      between these two content providers, you can change the value here.
+    defaultSourceTitle: Изберете източник на съдържание на мод
+    detailDescription: When you select an item on the left. You will see the details
+      of the mod. The content can come from Modrinth, Curseforge or parsed mod's content.
+    detailTitle: Подробности за мода
+    listDescription: We will display installed mods when you don't have any input.
+      You will see the searched mods once your input has a keyword or category selected.
+    listTitle: Инсталиран или търсене на мод
+    searchDescription: You could search mods from Modrinth, Curseforge or your local
+      cache with this search box.
+    searchTitle: Търсене на модове
+  multiplayer:
+    contentDescription: Connections between you and your peers will be listed here.
+    contentTitle: '@:multiplayer.connections'
+    groupDescription: You can create or join a group with other players. The launcher
+      will try to create P2P connections between you and your friends according to
+      the group. You can input the group name given by your friends. Or you can create
+      an unique name.
+    groupTitle: Присъединяване към група
+    joinDescription: Once you input a group name, you can click this button to join
+      or create the group. If the group name is empty, the launcher will generate
+      a name for you.
+    manualDescription: If you or your friend cannot connect to the group, you can
+      try to manually exchange the token by clicking manually connect. If that also
+      failed, it might be an internet issue.
+  recentPlayDescription: The created games will be listed here. You can switch the
+    views here to also see the installed versions and downloaded modpacks.
+  storePoupularModpackDescription: You will see the most popular modpacks in Curseforge
+    and Modrinth in this section.
+  storeSearchCategoryDescription: You can also toggle the categories or filters here.
+  storeSearchDescription: You can search Modpacks by inputting in this text box. Press
+    Enter to search.
+  storeSearchResultDescription: You will see all search results listed here.
+  userAccountDescription: Click this icon to add or manage your Minecraft account.
+universalDrop:
+  enableModsAfterImport: Активиране на модове след импортиране
+  start: Импортирането започна
+  title: Drop File(s) Here to Import as
+  unknownResource: Неизвестен
+update:
+  goOfficialWebDownload: Изтеглете отново от официалния уебсайт
+upstream:
+  downgrade: Понижаване
+  missingModpackMetadata: 'The old modpack metadata not found.
+
+    You can still upgrade, but the result might be wrong. Please backup your instance
+    files.'
+  onlyShowCurrentVersion: Показвай само текущата версия на Minecraft
+  update: Актуализация
+user:
+  accessToken: Токен за достъп
+  authMode: Услуга за удостоверяване
+  authService: Разрешаване на услуга
+  birth: Регистриран рожден ден
+  challenges: Answer questions below to verify your identity
+  email: Имейл адрес
+  forgetChallenges: I have forgot these questions and I want to change them
+  id: Потребителско ID
+  info: Информация за потребителя
+  insecureClient: The Client is insecure! Please validate your identity to upload
+    skin!
+  name: Потребителско име
+  nameHint: Името, което се показва в играта
+  profile: Профил
+  refreshAccount: Обновяване на акаунта
+  refreshSkin: Обновяване на скина
+  submitChallenges: Изпращане на отговори
+  tokenExpired: Изтекъл
+  tokenValidUntil: Токенът е валиден до
+userAccount:
+  add: Добавяне на акаунт
+  removeDescription: This will remove all info for this account. Are you sure?
+  removeTitle: Премахване на акаунт
+userCape:
+  changeTitle: Промяна на вашата пелерина
+  description: 'Capes are special rewards players can unlock through different events,
+    campaigns, and other happy happenings. Here you can choose between the capes you
+    currently own:'
+  noCape: Без пелерина
+userService:
+  add: Добавяне на още услуги
+  authLibInjector: Следвайте предложението на auth-lib injector
+  baseUrlHint: The base URL of your custom service
+  manageServices: Управление на услуги за удостоверяване
+  authlibInjectorMetadata: Authlib-Injector метаданни
+  server: Сървър
+  implementation: Реализация
+  version: Версия
+  skinDomains: Домейни на кожи
+  homepage: Начална страница
+  register: Регистриране
+  title: Потребителски услуги от трети страни
+  validateHint: Used to check if user's token is still valid
+userServices:
+  microsoft:
+    account: Акаунт в Microsoft
+    deviceCode: Код на устройството
+    deviceCodeHint: Device code will be generated after you click login
+    fastLogin: Бързо влизане
+    name: Microsoft
+    password: Въведете парола в браузъра
+    useDeviceCode: Влизане с код на устройство
+  mojang:
+    account: Имейл адрес
+    name: Mojang
+    password: Парола
+  offline:
+    account: Потребителско име
+    name: Офлайн
+    password: Без парола
+    uuid: UUID на потребителя (по избор)
+userSkin:
+  import: Импортиране на скин
+  importFile: Отваряне от файл
+  importLink: Отваряне от връзка
+  placeUrlHere: Поставете URL адрес на кожата тук, за да импортирате
+  reset: Нулиране
+  save: Запазване
+  saveTitle: Запазване на облика на диск
+  skinType: Тип на скина
+  upload: Качване на скин
+  urlNotEmpty: URL адресът на скина не може да бъде празен
+  urlNotValid: URL адресът на облика е невалиден
+  useSlim: Използване на модел Slim
+version:
+  checkIntegrity: Проверка на целостта
+  name: Версия | Версии
+  notInstalled: Версията не е инсталирана
+  selector: Версиен селектор
+versionType:
+  alpha: Алфа
+  beta: Бета
+  name: Състояние
+  release: Издаване
+'yes': Да
