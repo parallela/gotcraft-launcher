@@ -157,21 +157,25 @@ const onInstall = async (v: StoreProjectVersion) => {
         return
       }
 
-      // Get the version details
-      const version = versions.value.find(ver => ver.id === v.id)
-      if (!version) {
-        notify({ level: 'error', title: t('error.versionNotFound') })
+      // Get the full version details from the API to get file information
+      const versionDetail = await clientModrinthV2.getProjectVersion(v.id)
+
+      if (!versionDetail || !versionDetail.files || versionDetail.files.length === 0) {
+        notify({ level: 'error', title: t('error.noFilesFound') })
         return
       }
+
+      // Get the primary file or the first file
+      const primaryFile = versionDetail.files.find(f => f.primary) || versionDetail.files[0]
 
       // Install the mod file to the instance's mods folder
       await installInstanceFiles({
         path: selectedInstance.value,
         files: [{
-          path: `mods/${version.files[0]?.filename || v.name}`,
-          downloads: version.files[0]?.url ? [version.files[0].url] : [],
-          hashes: version.files[0]?.hashes || {},
-          size: version.files[0]?.size || 0,
+          path: `mods/${primaryFile.filename}`,
+          downloads: [primaryFile.url],
+          hashes: primaryFile.hashes,
+          size: primaryFile.size,
           modrinth: {
             projectId: proj.value!.id,
             versionId: v.id,
@@ -180,7 +184,7 @@ const onInstall = async (v: StoreProjectVersion) => {
         oldFiles: [],
       })
 
-      notify({ level: 'success', title: t('install.success') })
+      notify({ level: 'success', title: t('Mod installed successfully!') })
     }
   } catch (e: any) {
     notify({ level: 'error', title: e.message })
