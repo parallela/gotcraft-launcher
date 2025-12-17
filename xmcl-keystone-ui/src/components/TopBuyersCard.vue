@@ -15,7 +15,7 @@
       <div class="mt-2 text-sm">{{ error }}</div>
     </v-card-text>
 
-    <v-card-text v-else-if="topBuyers.length > 0" class="pt-0 pb-4">
+    <v-card-text v-else-if="topBuyers.length > 0" class="pt-0 pb-0 flex flex-col" style="overflow: visible; height: calc(100% - 56px);">
       <!-- Top 3 Podium -->
       <div class="podium-container">
         <div
@@ -28,7 +28,7 @@
             {{ buyer.username }}
           </div>
 
-          <!-- Minecraft Skin -->
+          <!-- Minecraft Skin - Fixed size to prevent stretching -->
           <div :class="`skin-container rank-${buyer.rank}`">
             <img
               :src="`https://mc-heads.net/body/${buyer.username}/100`"
@@ -38,7 +38,7 @@
             >
           </div>
 
-          <!-- Podium -->
+          <!-- Podium - properly positioned below skin -->
           <div :class="`podium-cube rank-${buyer.rank}`">
             <div class="podium-top">
               <div class="podium-label">
@@ -57,8 +57,8 @@
         </div>
       </div>
 
-      <!-- Other Rankings -->
-      <div v-if="otherBuyers.length > 0" class="other-buyers-list">
+      <!-- Other Rankings - Full height scroll -->
+      <div v-if="otherBuyers.length > 0" class="other-buyers-list flex-1">
         <div
           v-for="buyer in otherBuyers"
           :key="buyer.user_id"
@@ -177,6 +177,11 @@ onUnmounted(() => {
 .top-buyers-card {
   background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
 }
 
 .pixelated {
@@ -185,14 +190,15 @@ onUnmounted(() => {
   image-rendering: crisp-edges;
 }
 
-/* Podium Container */
+/* Podium Container - Fixed height and full width */
 .podium-container {
   display: flex;
   align-items: flex-end;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 1rem;
-  padding: 0 0.5rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
 }
 
 .podium-item {
@@ -214,10 +220,12 @@ onUnmounted(() => {
   white-space: nowrap;
 }
 
-/* Skin Container */
+/* Skin Container - Fixed to prevent floating and stretching */
 .skin-container {
   position: relative;
-  margin-bottom: 1rem;
+  width: 50px;
+  height: 100px;
+  margin-bottom: 0.5rem;
   transform-style: preserve-3d;
   animation: gentle-float 3s ease-in-out infinite;
 }
@@ -227,8 +235,9 @@ onUnmounted(() => {
 .skin-container.rank-3 { animation-delay: 0.4s; }
 
 .skin-image {
-  width: 80px;
-  height: 160px;
+  width: 50px;
+  height: 100px;
+  object-fit: contain;
   position: relative;
   z-index: 10;
   display: block;
@@ -251,11 +260,12 @@ onUnmounted(() => {
   }
 }
 
-/* Podium Cube */
+/* Podium Cube - properly positioned */
 .podium-cube {
   position: relative;
   width: 140px;
   perspective: 1000px;
+  margin-top: -0.5rem;
 }
 
 .podium-top {
@@ -390,14 +400,17 @@ onUnmounted(() => {
   order: 3;
 }
 
-/* Other Buyers List */
+/* Other Buyers List - Take full remaining height and width */
 .other-buyers-list {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  max-height: 240px;
   overflow-y: auto;
-  padding-right: 0.5rem;
+  overflow-x: visible;
+  padding: 0 1rem 1rem 1rem;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
 }
 
 .buyer-row {
@@ -411,11 +424,13 @@ onUnmounted(() => {
   transition: all 0.2s;
   position: relative;
   z-index: 1;
+  min-width: 0;
+  flex-shrink: 0;
 }
 
 .buyer-row:hover {
   border-color: rgba(0, 245, 66, 0.4);
-  transform: scale(1.01);
+  transform: scale(1.02);
   background: rgba(255, 255, 255, 0.04);
   z-index: 10;
   box-shadow: 0 4px 12px rgba(0, 245, 66, 0.2);
@@ -473,9 +488,9 @@ onUnmounted(() => {
   margin: 0;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - Match TopVotersCard width */
 .other-buyers-list::-webkit-scrollbar {
-  width: 8px;
+  width: 0.875rem;
 }
 
 .other-buyers-list::-webkit-scrollbar-track {
@@ -499,9 +514,14 @@ onUnmounted(() => {
     gap: 0.5rem;
   }
 
+  .skin-container {
+    width: 40px;
+    height: 80px;
+  }
+
   .skin-image {
-    width: 60px !important;
-    height: 120px !important;
+    width: 40px;
+    height: 80px;
   }
 
   .podium-cube {

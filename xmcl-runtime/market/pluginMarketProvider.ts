@@ -214,7 +214,8 @@ export const pluginMarketProvider: LauncherAppPlugin = async (app) => {
   }
 
   async function getFiles(options: InstallMarketDirectoryOptions | InstallMarketInstanceOptions): Promise<InstanceFile[]> {
-    const domain = 'domain' in options ? options.domain : ''
+    // Default to 'mods' domain if not specified to prevent mods from being installed in wrong directories
+    const domain = 'domain' in options ? options.domain : 'mods'
     if (options.market === 0) {
       const versions = Array.isArray(options.version) ? options.version : [options.version]
       const versionsDict = Object.fromEntries(versions.map(v => [v.versionId, v]))

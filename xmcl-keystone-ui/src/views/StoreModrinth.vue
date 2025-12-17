@@ -1,15 +1,15 @@
 <template>
-  <div ref="container" class="w-full overflow-auto bg-mc-store">
+  <div ref="container" class="w-full overflow-auto bg-mc-store ml-20">
     <v-progress-linear class="absolute left-0 top-0 z-10 m-0 p-0"
       :active="isModrinthSearching" height="3" :indeterminate="true" />
 
-    <!-- Search and Filters - Compact Header -->
-    <div class="sticky top-0 z-10 bg-mc-sidebar px-4 py-2 border-b-2 border-mc-emerald/20 shadow-lg">
-      <div class="flex gap-2 items-center flex-wrap">
+    <!-- Search and Filters - Compact Header with proper spacing -->
+    <div class="sticky top-0 z-10 bg-mc-sidebar px-6 py-4 border-b-2 border-mc-emerald/20 shadow-lg mr-6">
+      <div class="flex gap-3 items-center flex-wrap">
         <!-- Modrinth Icon -->
-        <v-icon size="24" color="#1bd96a" class="mr-1">$vuetify.icons.modrinth</v-icon>
+        <v-icon size="28" color="#1bd96a" class="mr-2">$vuetify.icons.modrinth</v-icon>
 
-        <!-- Search Field -->
+        <!-- Search Field - Increased height -->
         <v-text-field
           id="search-text-field"
           ref="searchTextField"
@@ -17,7 +17,6 @@
           color="#1bd96a"
           class="flex-1 min-w-[250px] store-input"
           append-icon="search"
-          dense
           solo
           hide-details
           clearable
@@ -33,7 +32,6 @@
           :items="gameVersionItems"
           :label="t('minecraftVersion.name')"
           color="#1bd96a"
-          dense
           solo
           hide-details
           clearable
@@ -47,7 +45,6 @@
           :items="loaderItems"
           :label="t('modrinth.modLoaders.name')"
           color="#1bd96a"
-          dense
           solo
           hide-details
           clearable
@@ -61,7 +58,6 @@
           :items="sortItems"
           :label="t('modrinth.sort.title')"
           color="#1bd96a"
-          dense
           solo
           hide-details
           class="sort-select store-input"
@@ -70,7 +66,7 @@
       </div>
     </div>
 
-    <div class="main px-3 py-2">
+    <div class="main px-6 py-4 mr-6">
       <!-- Search Results -->
       <div class="content">
         <div class="flex items-center justify-between mb-3">
@@ -479,5 +475,23 @@ const searchTextField = useTextFieldBehavior()
 
 .category-scroll::-webkit-scrollbar-thumb:hover {
   background: #15a855;
+}
+
+.store-input :deep(.v-input__control) {
+  min-height: 48px !important;
+  height: 48px !important;
+}
+
+.store-input :deep(.v-input__slot) {
+  min-height: 48px !important;
+  padding: 0 16px !important;
+}
+
+.store-input :deep(input) {
+  padding: 12px 0 !important;
+}
+
+.bg-mc-store {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, transparent 100%);
 }
 </style>
