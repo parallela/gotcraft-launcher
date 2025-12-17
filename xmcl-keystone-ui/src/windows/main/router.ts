@@ -22,6 +22,7 @@ import ShaderPackActions from '@/views/ShaderPackActions.vue'
 import ShaderPackExtension from '@/views/ShaderPackExtension.vue'
 import Store from '@/views/Store.vue'
 import StoreEntry from '@/views/StoreEntry.vue'
+import StoreModrinth from '@/views/StoreModrinth.vue'
 import StoreProjectCurseforge from '@/views/StoreProjectCurseforge.vue'
 import StoreProjectFeedTheBeast from '@/views/StoreProjectFeedTheBeast.vue'
 import StoreProjectModrinth from '@/views/StoreProjectModrinth.vue'
@@ -92,6 +93,10 @@ export const router = new Router({
         {
           path: '/',
           component: StoreEntry,
+        },
+        {
+          path: '/store/modrinth',
+          component: StoreModrinth,
         },
         {
           path: '/store/modrinth/:id',

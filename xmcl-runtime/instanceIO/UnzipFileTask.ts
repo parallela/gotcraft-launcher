@@ -9,6 +9,7 @@ import { errors } from 'undici'
 import { Entry, ZipFile } from 'yauzl'
 import { isSystemError } from '@xmcl/utils'
 import { ZipManager } from '~/infra'
+import { setMaxListeners } from 'events'
 
 export class UnzipFileTask extends AbortableTask<void> {
   #abortController = new AbortController()
@@ -21,6 +22,8 @@ export class UnzipFileTask extends AbortableTask<void> {
     super()
     this.name = 'unzip'
     this.param = { count: queue.length }
+    // Increase max listeners to prevent warning when processing many files
+    setMaxListeners(0, this.#abortController.signal)
   }
 
   async #processEntry(zip: ZipFile, entry: Entry, destination: string) {
@@ -44,6 +47,8 @@ export class UnzipFileTask extends AbortableTask<void> {
 
   protected async process(): Promise<void> {
     this.#abortController = new AbortController()
+    // Increase max listeners for the new controller
+    setMaxListeners(0, this.#abortController.signal)
     const queue = this.queue
 
     // Update the total size

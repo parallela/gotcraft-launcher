@@ -21,6 +21,7 @@ const { t } = useI18n()
 
 const emit = defineEmits<{
   (event: 'input', value: string): void
+  (event: 'add'): void
 }>()
 </script>
 
@@ -35,6 +36,9 @@ const emit = defineEmits<{
     :empty-text="t('localVersion.empty')"
     :placeholder="placeholder || t('localVersion.auto')"
     :value="value"
+    :has-add-button="true"
+    :add-button-text="t('version.addVersion')"
     @input="emit('input', $event)"
+    @add="emit('add')"
   />
 </template>

@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="flex flex-col"
+    class="flex flex-col card-with-glow"
     v-shared-tooltip="_ => name"
     :outlined="isSelected"
     :color="isSelected ? 'primary' : ''"
@@ -66,7 +66,7 @@
         </v-icon>
         {{ getDateString(instance.lastAccessDate, { dateStyle: 'long' }) }}
       </v-chip>
-<!--
+      <!--
       <div
         class="flex flex-col items-center justify-center"
       >
@@ -191,4 +191,50 @@ const onSettingClick = (event: MouseEvent) => {
 </script>
 
 <style>
+.card-with-glow {
+  position: relative;
+  border: 1px solid rgba(0, 245, 66, 0.3);
+  box-shadow: 0 0 10px rgba(0, 245, 66, 0.15);
+  transition: all 0.3s ease;
+}
+
+.card-with-glow:hover {
+  border-color: rgba(0, 245, 66, 0.5);
+  box-shadow: 0 0 15px rgba(0, 245, 66, 0.3), 0 0 25px rgba(0, 245, 66, 0.15);
+}
+
+.instance-card {
+  cursor: pointer;
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.version-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.version-icon {
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
+}
+
+.date-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+}
 </style>

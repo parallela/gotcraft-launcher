@@ -3,47 +3,59 @@
     v-ripple
     v-context-menu="contextMenu"
     outlined
-    :color="cardColor"
+    color="#15202b"
     hoverable
     :disabled="disabled"
     hover
-    class="select-none rounded-lg p-4"
+    class="select-none rounded-lg p-4 border border-[rgba(0,245,66,0.2)] hover:border-[rgba(0,245,66,0.4)] transition-all explore-card card-with-glow"
     @click="emit('click')"
   >
-    <div class="flex">
-      <v-img
-        max-width="100"
-        min-width="100"
-        :src="value.icon_url"
-        class="hidden rounded-2xl lg:block"
+    <div class="flex gap-3">
+      <!-- Mod Icon Image -->
+      <img
+        v-if="value.icon"
+        :src="value.icon"
+        class="hidden rounded-lg lg:block w-24 h-24 object-cover"
+        style="image-rendering: auto;"
+        :alt="value.title"
       />
-      <div class="ml-3 flex flex-col">
-        <div class="flex align-baseline">
-          <h2 class="pr-2 text-2xl font-bold">
+      <div class="flex-1 flex flex-col">
+        <div class="flex items-baseline gap-2">
+          <h2 class="text-xl font-bold text-white">
             {{ value.localizedTitle || value.title }}
           </h2>
-          <span class="secondary-text"> by {{ value.author }}</span>
+          <span class="text-sm text-gray-300">by {{ value.author }}</span>
           <div class="flex-grow" />
-          <v-icon>
-            {{ value.type === 'curseforge' ? '$vuetify.icons.curseforge' :
-              value.type === 'ftb' ? '$vuetify.icons.ftb' : '$vuetify.icons.modrinth' }}
+          <v-icon size="20" color="#1bd96a">
+            $vuetify.icons.modrinth
           </v-icon>
         </div>
-        {{ value.localizedDescription || value.description }}
-        <div class="secondary-text mt-1 flex gap-3 align-baseline">
+        <p class="text-sm text-gray-200 mt-1 line-clamp-2">
+          {{ value.localizedDescription || value.description }}
+        </p>
+        <div class="mt-2 flex gap-3 text-xs text-gray-300">
+          <span v-if="value.downloadCount" class="flex items-center gap-1">
+            <v-icon small color="#1bd96a">download</v-icon>
+            {{ value.downloadCount.toLocaleString() }}
+          </span>
+          <span v-if="value.followerCount" class="flex items-center gap-1">
+            <v-icon small color="#1bd96a">favorite</v-icon>
+            {{ value.followerCount.toLocaleString() }}
+          </span>
           <span
             v-for="label of value.labels"
             :key="label.id"
-            class="text-sm"
+            class="flex items-center gap-1"
           >
-            <v-icon small>
+            <v-icon small color="#1bd96a">
               {{ label.icon }}
             </v-icon>
             {{ label.text }}
           </span>
         </div>
         <div
-          class="mt-2 flex flex-wrap gap-2"
+          v-if="value.tags && value.tags.length > 0"
+          class="mt-2 flex flex-wrap gap-1"
           @click.stop.prevent
         >
           <CategoryChip
@@ -53,25 +65,6 @@
             :item="tag"
             @click="emit('filter', tag.text)"
           />
-          <!-- <v-chip
-            label
-            small
-          >
-            <v-avatar
-              v-if="tag.iconHTML"
-              left
-              v-html="tag.iconHTML"
-            />
-            <v-avatar
-              v-else-if="tag.icon"
-              left
-            >
-              <v-img
-                :src="tag.icon"
-              />
-            </v-avatar>
-            {{ tag.text }}
-          </v-chip> -->
         </div>
       </div>
     </div>
@@ -108,3 +101,17 @@ const emit = defineEmits(['filter', 'click', 'search', 'browse'])
 
 const { cardColor } = injection(kTheme)
 </script>
+
+<style scoped>
+.card-with-glow {
+  position: relative;
+  border: 1px solid rgba(0, 245, 66, 0.3) !important;
+  box-shadow: 0 0 10px rgba(0, 245, 66, 0.15);
+  transition: all 0.3s ease;
+}
+
+.card-with-glow:hover {
+  border-color: rgba(0, 245, 66, 0.5) !important;
+  box-shadow: 0 0 15px rgba(0, 245, 66, 0.3), 0 0 25px rgba(0, 245, 66, 0.15);
+}
+</style>

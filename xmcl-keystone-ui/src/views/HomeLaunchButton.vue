@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-grow-0 gap-[3px]">
+  <div class="flex flex-grow-0 gap-[2px]">
     <v-badge
       left
       color="primary"
@@ -16,14 +16,19 @@
         :color="color"
         :x-large="!compact"
         :large="compact"
-        class="px-12 text-lg transition-all btn-left"
+        :class="[
+          'px-10 font-semibold transition-all btn-left',
+          compact ? 'text-base' : 'text-lg'
+        ]"
+        elevation="3"
         @click="onClick()"
         @mouseenter="emit('mouseenter')"
         @mouseleave="emit('mouseleave')"
       >
         <v-icon
           v-if="leftIcon"
-          class="-ml-1 pr-2 text-2xl"
+          class="-ml-1 pr-2"
+          :size="compact ? 20 : 24"
         >
           {{ leftIcon }}
         </v-icon>
@@ -31,7 +36,8 @@
         <v-icon
           v-if="icon"
           right
-          class="pl-3 text-2xl"
+          class="pl-2"
+          :size="compact ? 20 : 24"
         >
           {{ icon }}
         </v-icon>
@@ -51,6 +57,7 @@
           :color="color"
           :x-large="!compact"
           :large="compact"
+          elevation="3"
           v-on="on"
         >
           <v-icon>
@@ -62,6 +69,7 @@
     </v-menu>
   </div>
 </template>
+
 <script lang="ts" setup>
 import { kLaunchButton } from '@/composables/launchButton'
 import { injection } from '@/util/inject'
@@ -82,10 +90,20 @@ const isShown = ref(false)
 .btn-right {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .btn-left {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+  text-transform: none;
+  letter-spacing: 0.025em;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-left:hover,
+.btn-right:hover {
+  transform: translateY(-1px);
 }
 
 @media (max-width: 850px) {

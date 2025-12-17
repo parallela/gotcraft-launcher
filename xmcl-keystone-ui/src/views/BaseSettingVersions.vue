@@ -18,15 +18,11 @@
         {{ t('version.checkIntegrity') }}
       </v-btn>
       <v-btn
-        v-if="!isExpanded"
         icon
-        @click="showAll = !showAll"
+        @click="showAddVersionDialog = true"
       >
-        <v-icon v-if="!showAll">
+        <v-icon>
           add
-        </v-icon>
-        <v-icon v-else>
-          unfold_less
         </v-icon>
       </v-btn>
     </v-subheader>
@@ -34,49 +30,29 @@
       :value="data.runtime.minecraft"
       @input="onSelectMinecraft"
     />
-    <VersionInputNeoForged
-      v-if="showNeoForged"
-      :value="data.runtime.neoForged"
-      :minecraft="data.runtime.minecraft"
-      @input="onSelectNeoForged"
-    />
-    <VersionInputForge
-      v-if="showForge"
-      :value="data.runtime.forge"
-      :minecraft="data.runtime.minecraft"
-      @input="onSelectForge"
-    />
-    <VersionInputFabric
-      v-if="showFabric"
-      :value="data.runtime.fabricLoader"
-      :minecraft="data.runtime.minecraft"
-      @input="onSelectFabric"
-    />
-    <VersionInputQuilt
-      v-if="showQuilt"
-      :value="data.runtime.quiltLoader"
-      :minecraft="data.runtime.minecraft"
-      @input="onSelectQuilt"
-    />
     <VersionInputOptifine
       v-if="showOptifine"
       :value="data.runtime.optifine"
-      :forge="data.runtime.forge || ''"
+      forge=""
       :minecraft="data.runtime.minecraft"
       @input="onSelectOptifine"
     />
-    <VersionInputLabymod
-      v-if="showLabyMod"
-      :value="data.runtime.labyMod"
-      :minecraft="data.runtime.minecraft"
-      @input="onSelectLabyMod"
-    />
+
     <VersionInputLocal
       :value="data.version"
       :versions="versions"
       :placeholder="versionHeader ? versionHeader.id : undefined"
       @input="onSelectLocalVersion"
+      @add="showAddVersionDialog = true"
     />
+
+    <BaseSettingAddVersionDialog
+      :show="showAddVersionDialog"
+      :minecraft="data.runtime.minecraft"
+      @input="showAddVersionDialog = $event"
+      @confirm="onAddVersionConfirm"
+    />
+
     <SimpleDialog
       v-model="reinstallDialogModel"
       :width="390"
@@ -94,14 +70,10 @@
 
 <script lang=ts setup>
 import SimpleDialog from '@/components/SimpleDialog.vue'
-import VersionInputFabric from '@/components/VersionInputFabric.vue'
-import VersionInputForge from '@/components/VersionInputForge.vue'
-import VersionInputLabymod from '@/components/VersionInputLabymod.vue'
 import VersionInputLocal from '@/components/VersionInputLocal.vue'
 import VersionInputMinecraft from '@/components/VersionInputMinecraft.vue'
-import VersionInputNeoForged from '@/components/VersionInputNeoForged.vue'
 import VersionInputOptifine from '@/components/VersionInputOptifine.vue'
-import VersionInputQuilt from '@/components/VersionInputQuilt.vue'
+import BaseSettingAddVersionDialog from './BaseSettingAddVersionDialog.vue'
 import { useService } from '@/composables'
 import { useSimpleDialog } from '@/composables/dialog'
 import { kInstanceVersion } from '@/composables/instanceVersion'
@@ -122,24 +94,21 @@ const {
 } = injection(InstanceEditInjectionKey)
 const { versions } = injection(kLocalVersions)
 
-const showAll = ref(false)
-const showForge = computed(() => props.isExpanded || showAll.value || instance.value.runtime.forge)
-const showNeoForged = computed(() => props.isExpanded || showAll.value || instance.value.runtime.neoForged)
-const showFabric = computed(() => props.isExpanded || showAll.value || instance.value.runtime.fabricLoader)
-const showQuilt = computed(() => props.isExpanded || showAll.value || instance.value.runtime.quiltLoader)
-const showOptifine = computed(() => props.isExpanded || showAll.value || instance.value.runtime.optifine)
-const showLabyMod = computed(() => props.isExpanded || showAll.value || instance.value.runtime.labyMod)
+const showAddVersionDialog = ref(false)
+const showOptifine = computed(() => props.isExpanded || instance.value.runtime.optifine)
 
 const {
   onSelectMinecraft,
-  onSelectNeoForged,
-  onSelectForge,
-  onSelectFabric,
-  onSelectQuilt,
   onSelectOptifine,
-  onSelectLabyMod,
   onSelectLocalVersion,
 } = useInstanceEditVersions(data, versions)
+
+function onAddVersionConfirm(versions: {
+  optifine?: string
+}) {
+  // Apply the selected versions
+  if (versions.optifine) onSelectOptifine(versions.optifine)
+}
 
 const { versionHeader } = injection(kInstanceVersion)
 function onFix() {

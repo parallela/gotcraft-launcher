@@ -2,9 +2,9 @@
   <v-system-bar
     topbar
     window
-    :color="'transparent'"
-    class="moveable flex w-full grow-0 gap-1 p-0"
-    :style="{ 'backdrop-filter': `blur(${blurAppBar}px)` }"
+    color="#15202b"
+    class="moveable flex w-full grow-0 gap-1 p-0 bg-[#15202b]"
+    style="backdrop-filter: blur(10px) !important; background-color: #15202b !important;"
   >
     <span
       v-if="back"

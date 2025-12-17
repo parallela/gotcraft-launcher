@@ -43,47 +43,12 @@
       :versions="versions"
       @input="onSelectMinecraft"
     />
-    <VersionInputNeoForged
-      v-if="isNotSelectingLabyMod"
-      :value="data.runtime.neoForged"
-      :minecraft="data.runtime.minecraft"
-      :versions="versions"
-      @input="onSelectNeoForged"
-    />
-    <VersionInputForge
-      v-if="isNotSelectingLabyMod"
-      :value="data.runtime.forge"
-      :minecraft="data.runtime.minecraft"
-      :versions="versions"
-      @input="onSelectForge"
-    />
-    <VersionInputFabric
-      v-if="isNotSelectingLabyMod"
-      :value="data.runtime.fabricLoader"
-      :minecraft="data.runtime.minecraft"
-      :versions="versions"
-      @input="onSelectFabric"
-    />
-    <VersionInputQuilt
-      v-if="isNotSelectingLabyMod"
-      :value="data.runtime.quiltLoader"
-      :minecraft="data.runtime.minecraft"
-      :versions="versions"
-      @input="onSelectQuilt"
-    />
     <VersionInputOptifine
-      v-if="isNotSelectingLabyMod"
       :value="data.runtime.optifine"
-      :forge="data.runtime.forge || ''"
+      forge=""
       :minecraft="data.runtime.minecraft"
       :versions="versions"
       @input="onSelectOptifine"
-    />
-    <VersionInputLabymod
-      :value="data.runtime.labyMod"
-      :minecraft="data.runtime.minecraft"
-      :versions="versions"
-      @input="onSelectLabyMod"
     />
     <VersionInputLocal
       :value="data.version"
@@ -94,16 +59,11 @@
 </template>
 
 <script lang=ts setup>
-import VersionInputFabric from '@/components/VersionInputFabric.vue'
-import VersionInputForge from '@/components/VersionInputForge.vue'
 import VersionInputLocal from '@/components/VersionInputLocal.vue'
 import VersionInputMinecraft from '@/components/VersionInputMinecraft.vue'
-import VersionInputNeoForged from '@/components/VersionInputNeoForged.vue'
 import VersionInputOptifine from '@/components/VersionInputOptifine.vue'
 import { kInstanceCreation } from '../composables/instanceCreation'
 import { kJavaContext } from '../composables/java'
-import VersionInputLabymod from './VersionInputLabymod.vue'
-import VersionInputQuilt from './VersionInputQuilt.vue'
 
 import { useInstanceEditVersions } from '@/composables/instanceEdit'
 import { kLocalVersions } from '@/composables/versionLocal'
@@ -126,12 +86,7 @@ const { versions } = injection(kLocalVersions)
 
 const {
   onSelectMinecraft,
-  onSelectNeoForged,
-  onSelectForge,
-  onSelectFabric,
-  onSelectQuilt,
   onSelectOptifine,
-  onSelectLabyMod,
   onSelectLocalVersion,
 } = useInstanceEditVersions(data, versions)
 
@@ -140,10 +95,6 @@ const javaItems = computed(() => javas.value.map(java => ({
   text: `Java ${java.majorVersion} (${java.version})`,
   value: java.path,
 })))
-
-const isNotSelectingLabyMod = computed(() => {
-  return !data.runtime.labyMod
-})
 </script>
 
 <style>

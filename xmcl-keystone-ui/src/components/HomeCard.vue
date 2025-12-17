@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="flex h-full flex-col transition-all duration-500 home-card"
+    class="home-card card-with-glow flex h-full flex-col transition-all duration-500"
     :class="{ highlighted: highlighted }"
     style="box-sizing: border-box"
     outlined
@@ -149,6 +149,18 @@ const highlighted = computed(() => globalDragover.value && dragover.value > 0)
 </script>
 
 <style scoped>
+.card-with-glow {
+  position: relative;
+  border: 1px solid rgba(0, 245, 66, 0.3) !important;
+  box-shadow: 0 0 10px rgba(0, 245, 66, 0.15);
+  transition: all 0.3s ease;
+}
+
+.card-with-glow:hover {
+  border-color: rgba(0, 245, 66, 0.5) !important;
+  box-shadow: 0 0 15px rgba(0, 245, 66, 0.3), 0 0 25px rgba(0, 245, 66, 0.15);
+}
+
 .highlighted {
   transform: scale(1.05);
 }

@@ -24,6 +24,20 @@
       height="3"
       :indeterminate="true"
     />
+
+    <!-- Back Button -->
+    <div class="flex items-center gap-2 mb-2">
+      <v-btn
+        icon
+        small
+        @click="goBack"
+        class="back-button hover:bg-[rgba(0,245,66,0.1)]"
+      >
+        <v-icon color="white">arrow_back</v-icon>
+      </v-btn>
+      <span class="text-base font-semibold text-white">{{ t('back') }}</span>
+    </div>
+
     <v-card class="flex flex-col gap-1 xl:flex-row">
       <StoreProjectGallery
         class="h-full flex-grow"
@@ -68,6 +82,7 @@
     />
   </div>
 </template>
+
 <script lang="ts"  setup>
 import ErrorView from '@/components/ErrorView.vue'
 import StoreProjectExternal from './StoreProjectExternal.vue'
@@ -134,5 +149,12 @@ const onOpen = () => {
 const onInstallVersion = (v: StoreProjectVersion) => {
   installDialog.value = false
   emit('install', v)
+}
+
+const { t } = useI18n()
+const router = useRouter()
+
+const goBack = () => {
+  router.back()
 }
 </script>

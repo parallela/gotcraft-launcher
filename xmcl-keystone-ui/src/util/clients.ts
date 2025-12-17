@@ -16,6 +16,8 @@ class ExtendedModrinthV2Client extends ModrinthV2Client {
   }
 }
 
-export const clientModrinthV2 = new ExtendedModrinthV2Client()
+// Initialize Modrinth client with API key if available
+const modrinthApiKey = import.meta.env.VITE_MODRINTH_API_KEY || undefined
+export const clientModrinthV2 = new ExtendedModrinthV2Client(modrinthApiKey ? { apiKey: modrinthApiKey } : undefined)
 export const clientCurseforgeV1 = new CurseforgeV1Client('', {})
 export const clientFTB = new FTBClient()

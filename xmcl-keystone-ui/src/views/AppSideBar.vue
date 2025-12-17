@@ -1,32 +1,33 @@
 <template>
   <!-- Custom sidebar with Minecraft theme -->
-  <div class="hidden md:flex fixed left-0 top-0 h-full w-20 bg-mc-sidebar border-r-2 border-mc-emerald/20 z-30 flex-col items-center py-4">
+  <div class="hidden md:flex fixed left-0 top-0 h-full sidebar-with-border z-30 flex-col items-center pt-4 pb-4">
     <!-- Logo at top -->
-    <div class="flex justify-center items-center mb-6">
-      <img
-        src="@/assets/logo.webp"
-        alt="GotCraft"
-        class="w-10 h-10 object-contain"
-      >
-    </div>
+    <img
+      src="@/assets/logo.webp"
+      alt="GotCraft"
+      class="w-10 h-10 object-contain mb-8"
+    >
 
-    <!-- Navigation icons with reduced spacing -->
-    <div class="flex flex-col items-center space-y-1 mb-2">
+    <!-- Spacer to push nav items toward center -->
+    <div class="flex-1 min-h-0"></div>
+
+    <!-- Navigation icons with more spacing - centered -->
+    <div class="flex flex-col items-center justify-center space-y-6 nav-section w-full py-4">
       <router-link
         to="/"
         exact
         v-shared-tooltip.right="() => t('home')"
         class="nav-icon"
       >
-        <v-icon size="20">home</v-icon>
+        <v-icon size="22">home</v-icon>
       </router-link>
 
       <router-link
-        to="/store"
-        v-shared-tooltip.right="() => t('store.name', 2)"
+        to="/store/modrinth"
+        v-shared-tooltip.right="() => t('modrinth.name', 2)"
         class="nav-icon"
       >
-        <v-icon size="20">shopping_bag</v-icon>
+        <v-icon size="22">$vuetify.icons.modrinth</v-icon>
       </router-link>
 
       <router-link
@@ -34,15 +35,15 @@
         v-shared-tooltip.right="() => t('myStuff')"
         class="nav-icon"
       >
-        <v-icon size="20">star</v-icon>
+        <v-icon size="22">star</v-icon>
       </router-link>
     </div>
 
-    <!-- Small divider before version selector -->
-    <div class="w-8 h-[1px] bg-gray-600/30 my-2"></div>
+    <!-- Spacer to balance the layout -->
+    <div class="flex-1 min-h-0"></div>
 
     <!-- Version Selector Dropdown -->
-    <div class="mb-2">
+    <div class="mb-4">
       <v-menu
         v-model="versionMenuShown"
         offset-x
@@ -69,27 +70,35 @@
             class="version-item"
           >
             <v-list-item-avatar size="32">
-              <v-img :src="getInstanceIcon(instance)" />
+              <v-img :src="getInstanceIcon(instance, undefined)" />
             </v-list-item-avatar>
             <v-list-item-content>
               <v-list-item-title>{{ instance.name || 'Unnamed' }}</v-list-item-title>
               <v-list-item-subtitle>{{ instance.runtime.minecraft }}</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
+
+          <!-- Add Version Button -->
+          <v-divider />
+          <v-list-item
+            @click="onAddVersion"
+            class="add-version-item"
+          >
+            <v-list-item-avatar size="32">
+              <v-icon color="primary">add_circle</v-icon>
+            </v-list-item-avatar>
+            <v-list-item-content>
+              <v-list-item-title class="primary--text font-weight-bold">
+                {{ t('instances.add') }}
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
         </v-list>
       </v-menu>
     </div>
 
-    <!-- Divider line -->
-    <div class="w-12 h-[1px] bg-gray-600/50 mb-4"></div>
-
-    <!-- Instances section - HIDDEN as it's redundant with version selector -->
-    <div class="hidden flex-1 overflow-y-auto overflow-x-hidden w-full flex-col items-center px-2">
-      <AppSideBarContentNext />
-    </div>
-
     <!-- Settings at bottom -->
-    <div class="mt-auto pt-4">
+    <div class="mb-4">
       <router-link
         to="/setting"
         v-shared-tooltip.right="() => t('setting.name', 2)"
@@ -148,6 +157,8 @@ import { UserSkinRenderPaused } from '@/composables/userSkin'
 import { kInstances } from '@/composables/instances'
 import { kInstance } from '@/composables/instance'
 import { getInstanceIcon } from '@/util/favicon'
+import { useDialog } from '@/composables/dialog'
+import { AddInstanceDialogKey } from '@/composables/instanceTemplates'
 
 const { state } = injection(kSettingsState)
 const { t } = useI18n()
@@ -161,6 +172,8 @@ const versionMenuShown = ref(false)
 
 provide(UserSkinRenderPaused, computed(() => !userMenuShown.value))
 
+const { show: showAddInstanceDialog } = useDialog(AddInstanceDialogKey)
+
 const selectInstance = (path: string) => {
   if (router.currentRoute.path !== '/') {
     router.push('/').then(() => {
@@ -171,6 +184,11 @@ const selectInstance = (path: string) => {
   }
   versionMenuShown.value = false
 }
+
+const onAddVersion = () => {
+  versionMenuShown.value = false
+  showAddInstanceDialog()
+}
 </script>
 
 <style scoped>
@@ -179,15 +197,25 @@ const selectInstance = (path: string) => {
   background-color: rgb(21 32 43 / var(--tw-bg-opacity, 1));
 }
 
-.border-mc-emerald\/20 {
-  border-color: rgba(0, 245, 66, 0.2);
+.sidebar-with-border {
+  position: relative;
+  width: 80px;
+  min-width: 80px;
+  max-width: 80px;
+  background-color: rgb(21 32 43 / var(--tw-bg-opacity, 1));
+  border-right: 2px solid rgba(0, 245, 66, 0.3);
+  box-shadow: 2px 0 10px rgba(0, 245, 66, 0.2);
+}
+
+.nav-section {
+  position: relative;
 }
 
 .nav-icon {
   @apply relative flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-200;
   @apply text-gray-400 hover:text-white no-underline;
   text-decoration: none !important;
-  border: 2px solid transparent;
+  border: none !important;
 }
 
 .nav-icon:hover {
@@ -196,9 +224,9 @@ const selectInstance = (path: string) => {
 
 .nav-icon.router-link-active,
 .nav-icon.router-link-exact-active {
-  background-color: #00f54233;
-  color: #00f542;
-  border-color: #00f54280;
+  background-color: rgba(0, 245, 66, 0.2) !important;
+  color: rgb(0, 245, 66) !important;
+  border-color: rgba(0, 245, 66, 0.5) !important;
   text-decoration: none !important;
   border-radius: 0.5rem;
 }
@@ -216,6 +244,15 @@ const selectInstance = (path: string) => {
 .version-item:hover {
   background-color: rgba(0, 245, 66, 0.1);
 }
+
+.add-version-item {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-version-item:hover {
+  background-color: rgba(0, 245, 66, 0.1);
+}
 </style>
 
 <style>
@@ -229,6 +266,10 @@ const selectInstance = (path: string) => {
 
 .text-mc-emerald {
   color: rgb(0, 245, 66);
+}
+
+.ring-mc-emerald {
+  --tw-ring-color: rgba(0, 245, 66, 0.5);
 }
 
 .user-menu {

@@ -1,7 +1,8 @@
 <template>
   <v-app v-if="!showSetup" class="h-full max-h-screen overflow-auto overflow-x-hidden" :class="{ 'dark': isDark }">
     <AppBackground />
-    <div class="w-full h-full absolute left-0 header-overlay" :style="{
+    <div class="w-full h-full absolute header-overlay" :style="{
+      left: '80px',
       height: headerHeight + (compact ? 30 : 70) + 'px',
       'background-image': `linear-gradient(${appBarColor}, transparent)`
     }">
@@ -9,11 +10,9 @@
     <AppSystemBar />
     <div class="relative flex h-full overflow-auto">
       <AppSideBar />
-      <main class="relative inset-y-0 right-0 flex max-h-full flex-col overflow-auto ml-20 pt-0">
         <transition name="fade-transition" mode="out-in">
           <router-view class="z-2" />
         </transition>
-      </main>
     </div>
     <!-- <AppDropDialog /> -->
     <AppContextMenu />

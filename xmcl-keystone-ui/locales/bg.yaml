@@ -1186,7 +1186,7 @@ presence:
   instance: Неактивен в инстанция {instance}
   instanceSetting: 'Edit Instance Setting: {instance}'
   mod: Viewing Mods in {instance}
-  modrinth: Преглед на Modrinth
+  modrinth: Преглед на Modринт
   modrinthProject: Viewing {name} in Modrinth
   resourcePack: Viewing Resource Packs in {instance}
   save: Viewing Saves in {instance}
@@ -1540,13 +1540,13 @@ setup:
     language: Език
     name: Задаване на език
   path: Текущ път
-  title: 'Welcome to X Minecraft Launcher. Before start, we need you to '
+  title: 'Welcome to GotLauncher. Before start, we need you to '
 shaderPack:
   deletion: Изтриване на пакет шейдъри
   deletionHint: This will delete the shader pack file {path} and cannot be reverted.
   disabled: Деактивирани пакети шейдъри
   dropHint: Импортиране на пакет шейдъри
-  empty: Няма разпределен пакет шейдъри
+  empty: Няма разпределен пакет модификации
   enable: Използване на {name}
   enabled: Активирани пакети шейдъри
   manage: Управление на пакети шейдъри
@@ -1618,8 +1618,8 @@ theme:
   selectImage: Избор на изображение
   selectMusic: Избор на музика
   selectVideo: Избор на видео
-  title: X Minecraft Launcher
-title: X Minecraft Launcher
+  title: GotLauncher
+title: GotLauncher
 transportType:
   host: Кандидат за хост
   prflx: Кандидат за равностоен рефлекс

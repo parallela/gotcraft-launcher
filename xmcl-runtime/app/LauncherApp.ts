@@ -193,7 +193,7 @@ export class LauncherApp extends EventEmitter {
       arch: plat.arch as any,
     }
     this.appDataPath = join(appData, LAUNCHER_NAME)
-    this.minecraftDataPath = join(appData, '.minecraft-gotcraft-network')
+    this.minecraftDataPath = join(appData, '.gtlauncher')
 
     this.registry.register(LauncherAppKey, this)
     this.controller = getController(this)

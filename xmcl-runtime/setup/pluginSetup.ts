@@ -26,13 +26,13 @@ export const pluginSetup: LauncherAppPlugin = async (app) => {
   }
 
   app.controller.handle('preset', async () => {
-    const defaultPath = join(app.host.getPath('home'), '.minecraft-gotcraft-network')
+    const defaultPath = join(app.host.getPath('home'), '.gtlauncher')
     const getPath = (driveSymbol: string) => {
       const parsedHome = parse(defaultPath)
       if (isValidPathName(defaultPath) && parsedHome.root.toLocaleLowerCase().startsWith(driveSymbol.toLocaleLowerCase())) {
         return defaultPath
       }
-      return join(driveSymbol, '.minecraft-gotcraft-network')
+      return join(driveSymbol, '.gtlauncher')
     }
     const getAllDrived = async () => {
       try {

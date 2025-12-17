@@ -1,11 +1,11 @@
 import { join } from 'path'
 
-const darkIcoRelative = require('../../icons/favicon.ico')
-const darkIconRelative = require('../../icons/gotlogo2.png')
-const darkTrayRelative = require('../../icons/gotlogo2.png')
-const lightIcoRelative = require('../../icons/favicon.ico')
-const lightIconRelative = require('../../icons/gotlogo2.png')
-const lightTrayRelative = require('../../icons/gotlogo2.png')
+const darkIcoRelative = require('../../icons/favicon.ico').default || require('../../icons/favicon.ico')
+const darkIconRelative = require('../../icons/gotlogo2.png').default || require('../../icons/gotlogo2.png')
+const darkTrayRelative = require('../../icons/gotlogo2.png').default || require('../../icons/gotlogo2.png')
+const lightIcoRelative = require('../../icons/favicon.ico').default || require('../../icons/favicon.ico')
+const lightIconRelative = require('../../icons/gotlogo2.png').default || require('../../icons/gotlogo2.png')
+const lightTrayRelative = require('../../icons/gotlogo2.png').default || require('../../icons/gotlogo2.png')
 
 // Resolve to absolute paths
 export const darkIco = join(__dirname, darkIcoRelative)

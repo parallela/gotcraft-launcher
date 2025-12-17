@@ -3,8 +3,7 @@
     v-data-transfer:id="source.name"
     v-data-transfer-image="icon"
     hover
-    outlined
-    class="dark:white--text draggable-card p-2"
+    class="dark:white--text draggable-card p-2 save-card card-with-glow"
     style="margin-top: 10px; transition-duration: 0.2s; margin-bottom: 20px"
     @dragstart="onDragStart"
     @dragend="emit('dragend', $event)"
@@ -115,5 +114,16 @@ const onDragStart = (e: DragEvent) => {
 const icon = ref(null)
 </script>
 
-<style>
+<style scoped>
+.card-with-glow {
+  position: relative;
+  border: 1px solid rgba(0, 245, 66, 0.3) !important;
+  box-shadow: 0 0 10px rgba(0, 245, 66, 0.15) !important;
+  transition: all 0.3s ease;
+}
+
+.card-with-glow:hover {
+  border-color: rgba(0, 245, 66, 0.5) !important;
+  box-shadow: 0 0 15px rgba(0, 245, 66, 0.3), 0 0 25px rgba(0, 245, 66, 0.15) !important;
+}
 </style>

@@ -797,6 +797,7 @@ minecraftVersion:
   release: Release
   showAlpha: Show Snapshot
   snapshot: Snapshot
+
 mod:
   acceptVersion: Accept {version}
   applyGroupRules: Apply saved grouping rules
@@ -946,6 +947,7 @@ modpackImportConfirm:
     modpack?
   title: Are you trying to import a modpack?
 modrinth:
+  name: Modrinth Store
   browseUrl: Open In Browser {url}
   categories:
     128x: 128x
@@ -1610,7 +1612,7 @@ setup:
     language: Language
     name: Set Language
   path: Current Path
-  title: 'Welcome to X Minecraft Launcher. Before start, we need you to '
+  title: 'Welcome to  GotCraft Launcher. Before start, we need you to '
 shaderPack:
   deletion: Delete Shader Pack
   deletionHint: This will delete the shader pack file {path} and cannot be reverted.
@@ -1690,8 +1692,8 @@ theme:
   selectImage: Select Image
   selectMusic: Select Music
   selectVideo: Select Video
-  title: X Minecraft Launcher
-title: X Minecraft Launcher
+  title: GotCraft Launcher
+title: GotLauncher
 transportType:
   host: Host Candidate
   prflx: Peer Reflexive Candidate
@@ -1859,6 +1861,8 @@ userSkin:
   urlNotValid: Skin URL is Invalid
   useSlim: Use Slim Model
 version:
+  addVersion: Add Mod Loader
+  addVersionHint: Install Forge, Fabric, Quilt, OptiFine, or other mod loaders
   checkIntegrity: Check Integrity
   name: Version | Versions
   notInstalled: Version is not installed

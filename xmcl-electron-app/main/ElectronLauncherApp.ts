@@ -2,7 +2,7 @@ import { NetworkErrorCode, NetworkException } from '@xmcl/runtime-api'
 import { LauncherApp, Shell } from '@xmcl/runtime/app'
 import { LAUNCHER_NAME } from '@xmcl/runtime/constant'
 import { AnyError } from '@xmcl/utils'
-import { Menu, app, net, shell } from 'electron'
+import { Menu, app, net, shell, globalShortcut, BrowserWindow } from 'electron'
 import { stat } from 'fs-extra'
 import { join } from 'path'
 import { fetch as ufetch } from 'undici'
@@ -222,6 +222,21 @@ export default class ElectronLauncherApp extends LauncherApp {
 
     app.whenReady().then(() => {
       Menu.setApplicationMenu(null)
+      globalShortcut.register('F12', () => {
+        // Open the developer tools
+        const windows = BrowserWindow.getAllWindows()
+        for (const win of windows) {
+          win.webContents.openDevTools()
+        }
+      })
+
+      globalShortcut.register('CommandOrControl+Shift+I', () => {
+        // Open the developer tools
+        const windows = BrowserWindow.getAllWindows()
+        for (const win of windows) {
+          win.webContents.openDevTools()
+        }
+      })
     })
 
     await super.setup()

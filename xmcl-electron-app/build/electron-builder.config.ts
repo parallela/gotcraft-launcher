@@ -5,7 +5,7 @@ import type { Configuration } from 'electron-builder'
 dotenv()
 
 export const config = {
-  productName: 'X Minecraft Launcher',
+  productName: 'GotLauncher',
   appId: 'xmcl',
   directories: {
     output: 'build/output',
@@ -32,9 +32,9 @@ export const config = {
     to: '.',
     filter: 'package.json',
   }],
-  artifactName: 'xmcl-${version}-${platform}-${arch}.${ext}',
+  artifactName: 'gtlauncher-${version}-${platform}-${arch}.${ext}',
   appx: {
-    displayName: 'X Minecraft Launcher',
+    displayName: 'GotLauncher',
     applicationId: 'xmcl',
     identityName: 'xmcl',
     backgroundColor: 'transparent',
@@ -43,7 +43,7 @@ export const config = {
     setBuildNumber: true,
   },
   dmg: {
-    artifactName: 'xmcl-${version}-${arch}.${ext}',
+    artifactName: 'gtlauncher-${version}-${arch}.${ext}',
     contents: [
       {
         x: 410,
@@ -59,7 +59,7 @@ export const config = {
     ],
   },
   mac: {
-    icon: 'icons/dark.icns',
+    icon: 'icons/gotlogo2.png',
     darkModeSupport: true,
     target: [
       {
@@ -75,34 +75,37 @@ export const config = {
     },
   },
   win: {
-    certificateFile: undefined as string | undefined,
+    // For code signing: set WIN_CSC_LINK and WIN_CSC_KEY_PASS environment variables
+    // FREE option: Apply for SignPath.io (free for open-source projects)
+    // See: https://about.signpath.io/product/open-source
+    certificateFile: process.env.WIN_CSC_LINK || undefined,
+    certificatePassword: process.env.WIN_CSC_KEY_PASS || undefined,
     icon: 'icons/dark.ico',
     target: [
       {
-        target: 'zip',
+        target: 'nsis',
         arch: [
           'x64',
-          'ia32',
         ],
       },
-      'appx',
     ],
   },
+  nsis: {
+    oneClick: false,
+    allowToChangeInstallationDirectory: true,
+    perMachine: false,
+  },
   linux: {
-    executableName: 'xmcl',
+    executableName: 'gtlauncher',
     desktop: {
       MimeType: 'x-scheme-handler/xmcl',
       StartupWMClass: 'xmcl',
     },
     category: 'Game',
-    icon: 'icons/dark.icns',
-    artifactName: 'xmcl-${version}-${arch}.${ext}',
+    icon: 'icons/gotlogo2.png',
+    artifactName: 'gtlauncher-${version}-${arch}.${ext}',
     target: [
-      { target: 'deb', arch: ['x64', 'arm64'] },
-      { target: 'rpm', arch: ['x64', 'arm64'] },
-      { target: 'AppImage', arch: ['x64', 'arm64'] },
-      { target: 'tar.xz', arch: ['x64', 'arm64'] },
-      { target: 'pacman', arch: ['x64', 'arm64'] },
+      { target: 'AppImage', arch: ['x64'] },
     ],
   },
   snap: {

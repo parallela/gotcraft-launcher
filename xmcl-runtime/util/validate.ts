@@ -11,10 +11,20 @@ async function isExistedXMCLDir(path: string) {
   const librariesExisted = existsSync(libraries)
   const instances = join(path, 'instances')
   const instancesExisted = existsSync(instances)
+  const launcherProfiles = join(path, 'launcher_profiles.json')
+  const launcherProfilesExisted = existsSync(launcherProfiles)
 
-  if (versionsExisted && librariesExisted && instancesExisted) {
+  // If it has launcher files, it's an XMCL directory
+  if (launcherProfilesExisted) {
     return true
   }
+
+  // If it has at least 2 of the 3 main folders, it's an XMCL directory
+  const count = [versionsExisted, librariesExisted, instancesExisted].filter(Boolean).length
+  if (count >= 2) {
+    return true
+  }
+
   return false
 }
 

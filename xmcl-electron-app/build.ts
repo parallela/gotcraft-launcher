@@ -11,10 +11,11 @@ import createPrintPlugin from 'plugins/esbuild.print.plugin'
 import { createGzip } from 'zlib'
 import { pipeline } from 'stream'
 import { promisify } from 'util'
-import { buildAppInstaller } from './build/appinstaller-builder'
 import { config as electronBuilderConfig } from './build/electron-builder.config'
 import esbuildConfig from './esbuild.config'
-import { version } from './package.json'
+import packageJson from './package.json'
+
+const version = packageJson.version
 
 /**
  * @returns Hash string
@@ -54,10 +55,11 @@ async function buildMain(options: BuildOptions, slient = false) {
  * @param config The electron builder config
  * @param dir Use dir mode to build
  */
-async function buildElectron(config: Configuration, dir: boolean) {
-  console.log(chalk.bold.underline('Build electron'))
+async function buildElectron(config: Configuration, dir: boolean, platform?: 'win' | 'linux' | 'mac') {
+  console.log(chalk.bold.underline(`Build electron${platform ? ` for ${platform}` : ''}`))
   const start = Date.now()
-  const files = await electronBuilder({
+
+  const buildOptions: any = {
     publish: 'never',
     config,
     ...(dir ? {
@@ -65,7 +67,18 @@ async function buildElectron(config: Configuration, dir: boolean) {
       x64: true,
       arm64: process.platform !== 'win32'
     } : {}),
-  })
+  }
+
+  // Specify platform if provided
+  if (platform === 'win') {
+    buildOptions.win = []
+  } else if (platform === 'linux') {
+    buildOptions.linux = []
+  } else if (platform === 'mac') {
+    buildOptions.mac = []
+  }
+
+  const files = await electronBuilder(buildOptions)
 
   for (const file of files) {
     const fstat = await stat(file)
@@ -95,6 +108,8 @@ async function start() {
     return
   }
   const dir = !(process.env.BUILD_TARGET || (process.env.RELEASE === 'true'))
+  const buildAll = process.env.BUILD_TARGET === 'all'
+
   // Create empty binding.gyp to let electron-rebuild trigger rebuild to it
   await ensureFile(resolve(__dirname, 'node_modules', 'node_datachannel', 'binding.gyp'))
   const config: Configuration = {
@@ -122,7 +137,7 @@ async function start() {
       const gzipDest = dest + '.gz'
       let src = join(context.appOutDir, 'resources/app.asar')
       if (!existsSync(src)) {
-        src = join(context.appOutDir, 'X Minecraft Launcher.app/Contents/Resources/app.asar')
+        src = join(context.appOutDir, 'GotLauncher.app/Contents/Resources/app.asar')
       } else if (!existsSync(src)) {
         console.log(`  ${chalk.yellow('•')} fallback to ${chalk.yellow('Resources/app.asar')} for ${chalk.yellow('resources/app.asar')} not found`)
       }
@@ -131,29 +146,19 @@ async function start() {
       await promisify(pipeline)(createReadStream(dest), createGzip(), createWriteStream(gzipDest))
       console.log(`  ${chalk.blue('•')} prepare asar with checksum ${chalk.blue('from')}=${src} ${chalk.blue('to')}=${dest}`)
     },
-    async artifactBuildStarted(context) {
-      if (context.targetPresentableName.toLowerCase() === 'appx') {
-        console.log(`  ${chalk.blue('•')} copy appx icons`)
-        const files = await readdir(path.join(__dirname, './icons'))
-        const storeFiles = files.filter(f => f.endsWith('.png') &&
-          !f.endsWith('256x256.png') &&
-          !f.endsWith('tray.png'))
-          .map((f) => [
-            path.join(__dirname, 'icons', f),
-            path.join(__dirname, 'build', 'appx', f.substring(f.indexOf('@') + 1)),
-          ] as const)
-        await Promise.all(storeFiles.map(v => ensureFile(v[1]).then(() => copyFile(v[0], v[1]))))
-      }
-    },
-    async artifactBuildCompleted(context) {
-      if (!context.arch) return
-      if (context.target && context.target.name === 'appx') {
-        await buildAppInstaller(version, path.join(__dirname, './build/output/xmcl.appinstaller'), electronBuilderConfig.appx!.publisher!)
-      }
-    },
   }
 
-  await buildElectron(config, dir)
+  if (buildAll) {
+    // Build for all platforms
+    console.log(chalk.bold.cyan('\n=== Building for Windows ===\n'))
+    await buildElectron(config, false, 'win')
+    console.log(chalk.bold.cyan('\n=== Building for Linux ===\n'))
+    await buildElectron(config, false, 'linux')
+    console.log(chalk.bold.cyan('\n=== Building for macOS ===\n'))
+    await buildElectron(config, false, 'mac')
+  } else {
+    await buildElectron(config, dir)
+  }
   process.exit(0)
 }
 

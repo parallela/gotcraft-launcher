@@ -3,6 +3,7 @@ import { ModrinthV2Client } from '@xmcl/modrinth'
 import { AbortableTask } from '@xmcl/task'
 import { errors } from 'undici'
 import { InstanceFile } from '@xmcl/instance'
+import { setMaxListeners } from 'events'
 
 export type RequiredPick<T, K extends keyof T> = T & Required<Pick<T, K>>
 
@@ -39,6 +40,8 @@ export class ResolveInstanceFileTask extends AbortableTask<boolean> {
     }
 
     const controller = new AbortController()
+    // Prevent MaxListenersExceededWarning when processing many files
+    setMaxListeners(0, controller.signal)
     this.controller = controller
 
     let hasUpdate = false

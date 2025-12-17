@@ -31,9 +31,12 @@
         :has-snapshot="hasSnapshot"
         :snapshot="snapshot"
         :snapshot-tooltip="snapshotTooltip"
+        :has-add-button="hasAddButton"
+        :add-button-text="addButtonText"
         @update:snapshot="emit('update:snapshot', $event)"
         @select="emit('input', $event)"
         @refresh="emit('refresh')"
+        @add="emit('add')"
       >
         <template #default="{ on }">
           <v-text-field
@@ -82,11 +85,14 @@ defineProps<{
   snapshot?: boolean
   snapshotTooltip?: string
   error?: any
+  hasAddButton?: boolean
+  addButtonText?: string
 }>()
 
 const emit = defineEmits<{
   (event: 'input', value: string): void
   (event: 'refresh'): void
   (event: 'update:snapshot', value: boolean): void
+  (event: 'add'): void
 }>()
 </script>

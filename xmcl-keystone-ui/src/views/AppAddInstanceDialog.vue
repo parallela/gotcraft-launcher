@@ -24,6 +24,8 @@
         </template>
 
         <div class="flex-grow" />
+        <!-- Hidden: Import from other launcher button -->
+        <!--
         <v-btn
           outlined
           color="primary"
@@ -34,6 +36,7 @@
           </v-icon>
           {{ t("setting.migrateFromOther") }}
         </v-btn>
+        -->
       </v-toolbar-title>
     </v-toolbar>
 

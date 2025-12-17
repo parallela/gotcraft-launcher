@@ -27,90 +27,64 @@ defineEmits(['input', 'select'])
 
     <v-list-item-content>
       <v-list-item-title>{{ name }}</v-list-item-title>
-      <v-list-item-subtitle class="flex gap-1">
-        <v-chip
+      <v-list-item-subtitle class="flex gap-1 flex-wrap">
+        <span
           v-if="runtime.minecraft"
-          outlined
-          small
-          label
+          class="version-badge minecraft"
         >
-          <v-avatar left>
-            <img
-              :src="BuiltinImages.minecraft"
-              alt="minecraft"
-            >
-          </v-avatar>
+          <img
+            :src="BuiltinImages.minecraft"
+            alt="minecraft"
+            class="version-icon"
+          >
           {{ runtime.minecraft }}
-        </v-chip>
-        <v-chip
-          v-if="runtime.forge"
-          outlined
-          small
-          label
+        </span>
+        <span
+          v-if="runtime.optifine"
+          class="version-badge optifine"
         >
-          <v-avatar left>
-            <img
-              :src="BuiltinImages.forge"
-              alt="forge"
-            >
-          </v-avatar>
-          {{ runtime.forge }}
-        </v-chip>
-        <v-chip
-          v-if="runtime.fabricLoader"
-          outlined
-          small
-          label
-        >
-          <v-avatar left>
-            <img
-              :src="BuiltinImages.fabric"
-              alt="fabric"
-            >
-          </v-avatar>
-          {{ runtime.fabricLoader }}
-        </v-chip>
-
-        <v-chip
-          v-if="runtime.neoForged"
-          outlined
-          small
-          label
-        >
-          <v-avatar left>
-            <img
-              :src="BuiltinImages.neoForged"
-            >
-          </v-avatar>
-          {{ runtime.neoForged }}
-        </v-chip>
-
-        <v-chip
-          v-if="runtime.quiltLoader"
-          outlined
-          small
-          label
-        >
-          <v-avatar left>
-            <img
-              :src="BuiltinImages.quilt"
-            >
-          </v-avatar>
-          {{ runtime.quiltLoader }}
-        </v-chip>
+          {{ runtime.optifine }}
+        </span>
+      </v-list-item-subtitle>
+      <v-list-item-subtitle v-if="description" class="mt-1">
+        {{ description }}
       </v-list-item-subtitle>
     </v-list-item-content>
-
-    <v-list-item-action>
-      <v-list-item-action-text>{{ description }}</v-list-item-action-text>
-    </v-list-item-action>
-    <v-list-item-action>
+    <v-list-item-action v-if="value !== undefined">
       <v-checkbox
-        :value="value"
         :input-value="value"
         readonly
-        @input="$emit('input', !value)"
+        @input="$emit('input', $event)"
       />
     </v-list-item-action>
   </v-list-item>
 </template>
+
+<style scoped>
+.version-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+}
+
+.version-icon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+.version-badge.minecraft {
+  border-color: rgba(87, 142, 47, 0.3);
+}
+
+.version-badge.optifine {
+  border-color: rgba(200, 200, 200, 0.3);
+}
+</style>

@@ -2,7 +2,7 @@
   <v-card
     ref="root"
     flat
-    class="rounded-lg overflow-hidden tabs-card"
+    class="rounded-lg overflow-hidden tabs-card card-with-glow"
   >
     <HomeScreenshotCard
       v-if="selected === 0"
@@ -416,6 +416,17 @@ watch(instance, () => {
 })
 </script>
 <style scoped>
+.card-with-glow {
+  border: 1px solid rgba(0, 245, 66, 0.3) !important;
+  box-shadow: 0 0 10px rgba(0, 245, 66, 0.15);
+  transition: all 0.3s ease;
+}
+
+.card-with-glow:hover {
+  border-color: rgba(0, 245, 66, 0.5) !important;
+  box-shadow: 0 0 15px rgba(0, 245, 66, 0.3), 0 0 25px rgba(0, 245, 66, 0.15);
+}
+
 .tabs-card>.icons, .tabs-card>.tabs-items {
 transition: all 0.2s ease-in-out;
   opacity: 0;

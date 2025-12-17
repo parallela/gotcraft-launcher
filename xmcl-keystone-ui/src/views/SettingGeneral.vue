@@ -19,19 +19,6 @@
         <v-list-item-subtitle class="text-red!" v-if="errorText">{{ errorText }}</v-list-item-subtitle>
         <v-list-item-subtitle v-else>{{ root }}</v-list-item-subtitle>
       </v-list-item-content>
-      <v-list-item-action class="self-center mr-1">
-        <v-btn
-          outlined
-          text
-          style="margin-right: 10px"
-          @click="onMigrateFromOther"
-        >
-          <v-icon left>
-            local_shipping
-          </v-icon>
-          {{ t("setting.migrateFromOther") }}
-        </v-btn>
-      </v-list-item-action>
       <v-list-item-action class="self-center">
         <v-btn
           outlined

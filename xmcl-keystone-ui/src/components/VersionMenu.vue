@@ -105,6 +105,23 @@
       <v-list-item v-if="filteredItems.length === 0">
         {{ emptyText }}
       </v-list-item>
+      <v-divider v-if="hasAddButton" />
+      <v-list-item
+        v-if="hasAddButton"
+        ripple
+        @click="onAddClick"
+      >
+        <v-list-item-avatar>
+          <v-icon color="primary">
+            add_circle
+          </v-icon>
+        </v-list-item-avatar>
+        <v-list-item-content>
+          <v-list-item-title class="primary--text">
+            {{ addButtonText || t('add') }}
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
     </v-list>
   </v-menu>
 </template>
@@ -130,9 +147,11 @@ const props = defineProps<{
   snapshot?: boolean
   snapshotTooltip?: string
   error?: any
+  hasAddButton?: boolean
+  addButtonText?: string
 }>()
 
-const emit = defineEmits(['update:snapshot', 'select', 'refresh'])
+const emit = defineEmits(['update:snapshot', 'select', 'refresh', 'add'])
 const { t } = useI18n()
 
 const data = reactive({
@@ -146,6 +165,12 @@ const onSelect = (version: string) => {
   emit('select', version)
   data.opened = false
 }
+
+const onAddClick = () => {
+  emit('add')
+  data.opened = false
+}
+
 watch(computed(() => data.opened), (v) => {
   data.filterText = ''
 })

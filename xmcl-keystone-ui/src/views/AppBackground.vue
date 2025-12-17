@@ -1,5 +1,13 @@
 <template>
   <div class="absolute z-0 h-full w-full">
+    <!-- Custom background image with blur -->
+    <img
+      src="@/assets/bg.png"
+      class="absolute z-0 h-full w-full object-cover"
+      style="filter: blur(3px);"
+      alt="Background"
+    >
+
     <transition
       name="fade-transition"
     >

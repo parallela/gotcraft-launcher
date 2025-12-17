@@ -172,14 +172,10 @@ bootstrap.preset().then(({ minecraftPath, defaultPath, locale: locale_, drives }
 const hasError = computed(() => !!data.pathError && data.pathError !== 'exists')
 watch(() => data.path, (newPath) => {
   data.loading = true
-  data.pathError = undefined
+  data.pathError = '' as InvalidDirectoryErrorCode
   validateDataDictionary(newPath).then((reason) => {
     data.loading = false
-    if (!reason) {
-      data.path = newPath
-    } else {
-      data.pathError = reason
-    }
+    data.pathError = reason || '' as InvalidDirectoryErrorCode
   })
 })
 

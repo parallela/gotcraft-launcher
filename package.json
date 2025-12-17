@@ -9,7 +9,9 @@
     "scripts": {
         "compile": "pnpm -r compile",
         "build:schema": "pnpm run --prefix=xmcl-runtime-api build:schema",
+        "prebuild": "pnpm run build:renderer",
         "build": "pnpm run --prefix=xmcl-electron-app build",
+        "prebuild:all": "pnpm run build:renderer",
         "build:all": "pnpm run --prefix=xmcl-electron-app build:all",
         "build:renderer": "pnpm --prefix=xmcl-keystone-ui build",
         "postsign": "pnpm run --prefix=xmcl-electron-app postsign",
