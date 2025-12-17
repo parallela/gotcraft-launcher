@@ -214,8 +214,17 @@ export const pluginMarketProvider: LauncherAppPlugin = async (app) => {
   }
 
   async function getFiles(options: InstallMarketDirectoryOptions | InstallMarketInstanceOptions): Promise<InstanceFile[]> {
-    // Default to 'mods' domain if not specified to prevent mods from being installed in wrong directories
-    const domain = 'domain' in options ? options.domain : 'mods'
+    // For instance installations, use ResourceDomain.Mods ('mods')
+    // For directory installations, check if the directory already contains the domain path
+    let domain = ''
+    if ('instancePath' in options) {
+      // Installing to instance - always use 'mods' domain
+      domain = options.domain || 'mods'
+    } else {
+      // Installing to directory - domain should be empty if directory already includes it
+      domain = 'domain' in options && options.domain ? options.domain : ''
+    }
+
     if (options.market === 0) {
       const versions = Array.isArray(options.version) ? options.version : [options.version]
       const versionsDict = Object.fromEntries(versions.map(v => [v.versionId, v]))

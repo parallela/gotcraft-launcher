@@ -1,15 +1,15 @@
 <template>
-  <div ref="container" class="w-full overflow-auto bg-mc-store ml-20">
+  <div ref="container" class="w-full overflow-auto bg-mc-store">
     <v-progress-linear class="absolute left-0 top-0 z-10 m-0 p-0"
       :active="isModrinthSearching" height="3" :indeterminate="true" />
 
-    <!-- Search and Filters - Compact Header with proper spacing -->
-    <div class="sticky top-0 z-10 bg-mc-sidebar px-6 py-4 border-b-2 border-mc-emerald/20 shadow-lg mr-6">
-      <div class="flex gap-3 items-center flex-wrap">
+    <!-- Search and Filters - More compact with centered content -->
+    <div class="sticky top-0 z-10 bg-mc-sidebar py-2 border-b-2 border-mc-emerald/20 shadow-lg">
+      <div class="max-w-7xl mx-auto px-6 flex gap-2 items-center flex-wrap">
         <!-- Modrinth Icon -->
-        <v-icon size="28" color="#1bd96a" class="mr-2">$vuetify.icons.modrinth</v-icon>
+        <v-icon size="20" color="#1bd96a" class="mr-1">$vuetify.icons.modrinth</v-icon>
 
-        <!-- Search Field - Increased height -->
+        <!-- Search Field - More compact -->
         <v-text-field
           id="search-text-field"
           ref="searchTextField"
@@ -17,7 +17,9 @@
           color="#1bd96a"
           class="flex-1 min-w-[250px] store-input"
           append-icon="search"
+          dense
           solo
+          flat
           hide-details
           clearable
           :placeholder="t('modrinth.searchText')"
@@ -26,146 +28,153 @@
           @click:append="query = keyword"
         />
 
-        <!-- Game Version Selector -->
+        <!-- Game Version Selector - Compact -->
         <v-select
           v-model="gameVersion"
           :items="gameVersionItems"
           :label="t('minecraftVersion.name')"
           color="#1bd96a"
+          dense
           solo
+          flat
           hide-details
           clearable
           class="version-select store-input"
-          style="max-width: 160px;"
+          style="max-width: 150px;"
         />
 
-        <!-- Mod Loader Selector -->
+        <!-- Mod Loader Selector - Compact -->
         <v-select
           v-model="selectedLoader"
           :items="loaderItems"
           :label="t('modrinth.modLoaders.name')"
           color="#1bd96a"
+          dense
           solo
+          flat
           hide-details
           clearable
           class="loader-select store-input"
-          style="max-width: 140px;"
+          style="max-width: 130px;"
         />
 
-        <!-- Sort Selector -->
+        <!-- Sort Selector - Compact -->
         <v-select
           v-model="sort"
           :items="sortItems"
           :label="t('modrinth.sort.title')"
           color="#1bd96a"
+          dense
           solo
+          flat
           hide-details
           class="sort-select store-input"
-          style="max-width: 160px;"
+          style="max-width: 140px;"
         />
       </div>
     </div>
 
-    <div class="main px-6 py-4 mr-6">
-      <!-- Search Results -->
-      <div class="content">
-        <div class="flex items-center justify-between mb-3">
-          <div class="flex items-center gap-2">
-            <v-icon size="20" color="#1bd96a">explore</v-icon>
-            <span class="text-base font-semibold text-white">{{ t('mod.name', 2) }}</span>
-            <span v-if="modrinthTotal > 0" class="text-sm text-gray-300 font-medium">
-              ({{ modrinthTotal.toLocaleString() }})
-            </span>
-          </div>
-        </div>
-
-        <div v-if="!searchError && items.length > 0" id="search-result" class="relative flex flex-col gap-2">
-          <StoreExploreCard
-            v-for="mod in items"
-            :key="mod.id"
-            v-ripple
-            :disabled="false"
-            :value="mod"
-            class="cursor-pointer hover:shadow-lg transition-shadow"
-            @mouseenter.native="onMouseEnter($event, mod)"
-            @mouseleave.native="onMouseLeave(mod)"
-            @click="enterModrinth(mod.id)"
-          />
-
-          <div v-if="pageCount > 1" class="flex justify-center my-4">
-            <v-pagination
-              v-model="page"
-              :length="pageCount"
-              color="#1bd96a"
-              :disabled="isModrinthSearching"
-              :total-visible="9"
-              circle
-            />
-          </div>
-        </div>
-        <Hint
-          v-else-if="!isModrinthSearching && items.length === 0"
-          icon="search_off"
-          :size="64"
-          :text="t('modSearch.noModsFound')"
-        />
-        <div v-else-if="isModrinthSearching" class="flex items-center justify-center py-12">
-          <v-progress-circular indeterminate color="#1bd96a" size="48" />
-        </div>
-      </div>
-
-      <!-- Categories Sidebar - Compact -->
-      <div class="category-sidebar">
-        <div class="sticky top-[60px]">
-          <div class="bg-[#1a2332] rounded-lg p-3 shadow-lg">
-            <div class="flex items-center gap-2 mb-3">
-              <v-icon size="18" color="#1bd96a">category</v-icon>
-              <span class="text-sm font-semibold">{{ t('modrinth.categories.name') }}</span>
+    <!-- Centered content with equal spacing -->
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="main">
+        <!-- Search Results -->
+        <div class="content">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <v-icon size="20" color="#1bd96a">explore</v-icon>
+              <span class="text-base font-semibold text-white">{{ t('mod.name', 2) }}</span>
+              <span v-if="modrinthTotal > 0" class="text-sm text-gray-300 font-medium">
+                ({{ modrinthTotal.toLocaleString() }})
+              </span>
             </div>
+          </div>
 
-            <div v-if="!refreshingTag && modrinthGroups.length > 0" class="space-y-1 max-h-[calc(100vh-180px)] overflow-y-auto category-scroll">
-              <div v-for="group in modrinthGroups" :key="group.name" class="mb-2">
-                <div v-for="cat in group.categories" :key="cat.value" class="mb-1">
-                  <v-chip
-                    small
-                    :color="isSelected(cat) ? '#1bd96a' : 'transparent'"
-                    :text-color="isSelected(cat) ? 'black' : 'white'"
-                    class="category-chip w-full justify-start"
-                    @click="onSelect(cat)"
-                  >
-                    <v-icon v-if="cat.icon" size="14" left>{{ cat.icon }}</v-icon>
-                    <span class="text-xs">{{ cat.text }}</span>
-                  </v-chip>
+          <div v-if="!searchError && items.length > 0" id="search-result" class="relative flex flex-col gap-2">
+            <StoreExploreCard
+              v-for="mod in items"
+              :key="mod.id"
+              v-ripple
+              :disabled="false"
+              :value="mod"
+              class="cursor-pointer hover:shadow-lg transition-shadow"
+              @click="enterModrinth(mod.project_id)"
+            />
+
+            <div v-if="pageCount > 1" class="flex justify-center my-4">
+              <v-pagination
+                v-model="page"
+                :length="pageCount"
+                color="#1bd96a"
+                :disabled="isModrinthSearching"
+                :total-visible="9"
+                circle
+              />
+            </div>
+          </div>
+          <Hint
+            v-else-if="!isModrinthSearching && items.length === 0"
+            icon="search_off"
+            :size="64"
+            :text="t('modSearch.noModsFound')"
+          />
+          <div v-else-if="isModrinthSearching" class="flex items-center justify-center py-12">
+            <v-progress-circular indeterminate color="#1bd96a" size="48" />
+          </div>
+        </div>
+
+        <!-- Categories Sidebar - Compact -->
+        <div class="category-sidebar">
+          <div class="sticky top-[60px]">
+            <div class="bg-[#1a2332] rounded-lg p-3 shadow-lg">
+              <div class="flex items-center gap-2 mb-3">
+                <v-icon size="18" color="#1bd96a">category</v-icon>
+                <span class="text-sm font-semibold">{{ t('modrinth.categories.name') }}</span>
+              </div>
+
+              <div v-if="!refreshingTag && modrinthGroups.length > 0" class="space-y-1 max-h-[calc(100vh-180px)] overflow-y-auto category-scroll">
+                <div v-for="group in modrinthGroups" :key="group.name" class="mb-2">
+                  <div v-for="cat in group.categories" :key="cat.id" class="mb-1">
+                    <v-chip
+                      small
+                      :color="isSelected(cat) ? '#1bd96a' : 'transparent'"
+                      :text-color="isSelected(cat) ? 'black' : 'white'"
+                      class="category-chip w-full justify-start"
+                      @click="onSelect(cat)"
+                    >
+                      <v-icon v-if="cat.icon" size="14" left>{{ cat.icon }}</v-icon>
+                      <span class="text-xs">{{ cat.text }}</span>
+                    </v-chip>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div v-else-if="refreshingTag" class="flex justify-center py-4">
-              <v-progress-circular indeterminate color="#1bd96a" size="24" />
-            </div>
-            <div v-else class="text-xs text-gray-400 text-center py-4">
-              {{ t('modrinth.categories.name') }}
-            </div>
-
-            <!-- Selected Filters -->
-            <div v-if="selected.length > 0" class="mt-3 pt-3 border-t border-white/10">
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-xs text-gray-400">{{ t('modFilter.source') }}</span>
-                <v-btn x-small text color="#1bd96a" @click="clearFilters">
-                  {{ t('modFilter.clear') }}
-                </v-btn>
+              <div v-else-if="refreshingTag" class="flex justify-center py-4">
+                <v-progress-circular indeterminate color="#1bd96a" size="24" />
               </div>
-              <div class="flex flex-wrap gap-1">
-                <v-chip
-                  v-for="sel in selected"
-                  :key="`${sel.type}-${sel.value}`"
-                  x-small
-                  close
-                  color="#1bd96a"
-                  text-color="black"
-                  @click:close="onSelect(sel)"
-                >
-                  {{ sel.text }}
-                </v-chip>
+              <div v-else class="text-xs text-gray-400 text-center py-4">
+                {{ t('modrinth.categories.name') }}
+              </div>
+
+              <!-- Selected Filters -->
+              <div v-if="selected.length > 0" class="mt-3 pt-3 border-t border-white/10">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-xs text-gray-400">{{ t('modFilter.source') }}</span>
+                  <v-btn x-small text color="#1bd96a" @click="clearFilters">
+                    {{ t('modFilter.clear') }}
+                  </v-btn>
+                </div>
+                <div class="flex flex-wrap gap-1">
+                  <v-chip
+                    v-for="sel in selected"
+                    :key="sel.id"
+                    x-small
+                    close
+                    color="#1bd96a"
+                    text-color="black"
+                    @click:close="onSelect(sel)"
+                  >
+                    {{ sel.text }}
+                  </v-chip>
+                </div>
               </div>
             </div>
           </div>
@@ -178,14 +187,12 @@
 <script lang="ts" setup>
 import { CategoryChipProps } from '@/components/CategoryChip.vue'
 import Hint from '@/components/Hint.vue'
-import StoreExploreCard, { ExploreProject } from '@/components/StoreExploreCard.vue'
-import StoreExploreCategories, { ExploreCategoryGroup } from '@/components/StoreExploreCategories.vue'
-import { getFacatsText, kModrinthTags } from '@/composables/modrinth'
-import { useQuery, useQueryNumber, useQueryStringArray } from '@/composables/query'
+import StoreExploreCard from '@/components/StoreExploreCard.vue'
+import { kModrinthTags } from '@/composables/modrinth'
+import { useQuery, useQueryNumber } from '@/composables/query'
 import { useTextFieldBehavior } from '@/composables/textfieldBehavior'
 import { clientModrinthV2 } from '@/util/clients'
 import { injection } from '@/util/inject'
-import { SearchResultHit } from '@xmcl/modrinth'
 import { kInstance } from '@/composables/instance'
 
 const { push } = useRouter()
@@ -203,6 +210,8 @@ const page = useQueryNumber('page', 1)
 
 const pageSize = 20
 const keyword = ref(query.value)
+const searchTextField = ref()
+const searchTextFieldFocused = ref(false)
 
 // Get current instance version
 const { instance } = injection(kInstance)
@@ -213,7 +222,7 @@ watch(instance, (inst) => {
 }, { immediate: true })
 
 // Modrinth Tags
-const { categories: modrinthCategories, gameVersions, modLoaders: loaders, refreshing: refreshingTag, error: tagError } = injection(kModrinthTags)
+const { categories: modrinthCategories, gameVersions, modLoaders: loaders, refreshing: refreshingTag } = injection(kModrinthTags)
 
 // Game Version Items
 const gameVersionItems = computed(() => {
@@ -247,7 +256,7 @@ const sortItems = computed(() => [
 // Search
 const isModrinthSearching = ref(false)
 const searchError = ref<any>(null)
-const modrinthResult = ref<SearchResultHit[]>([])
+const modrinthResult = ref<any[]>([])
 const modrinthTotal = ref(0)
 
 // Initialize selected categories from query
@@ -269,9 +278,7 @@ watch([query, gameVersion, selectedLoader, sort, page, selected], async () => {
     }
 
     // Add selected category facets
-    const categoryFacets = selected.value
-      .filter(s => s.type === 'category')
-      .map(s => `categories:${s.value}`)
+    const categoryFacets = selected.value.map(s => `categories:${s.id}`)
 
     if (categoryFacets.length > 0) {
       facets.push(categoryFacets)
@@ -296,25 +303,34 @@ watch([query, gameVersion, selectedLoader, sort, page, selected], async () => {
 }, { immediate: true, deep: true })
 
 const items = computed(() => {
-  return modrinthResult.value.map(item => ({
-    id: item.project_id,
+  return modrinthResult.value.map(hit => ({
+    id: hit.project_id,
     type: 'modrinth' as const,
-    title: item.title,
-    description: item.description,
-    icon: item.icon_url,
-    author: item.author,
-    downloadCount: item.downloads,
-    followerCount: item.follows,
-    gallery: item.gallery,
-    modrinth: item,
-  } as ExploreProject))
+    title: hit.title,
+    icon: hit.icon_url,
+    icon_url: hit.icon_url,
+    description: hit.description,
+    author: hit.author,
+    downloadCount: hit.downloads,
+    followerCount: hit.follows,
+    labels: [],
+    tags: (hit.categories || [])
+      .filter((cat: string) => cat !== 'forge' && cat !== 'fabric' && cat !== 'quilt' && cat !== 'neoforge')
+      .map((cat: string) => ({
+        id: cat,
+        text: t(`modrinth.categories.${cat}`),
+        icon: modrinthCategories.value.find(c => c.name === cat)?.icon,
+      })),
+    gallery: hit.gallery || [],
+    project_id: hit.project_id,
+  }))
 })
 
 const pageCount = computed(() => Math.ceil(modrinthTotal.value / pageSize))
 
 // Categories
 const modrinthGroups = computed(() => {
-  const groups: ExploreCategoryGroup[] = []
+  const groups: Array<{ name: string; categories: CategoryChipProps[] }> = []
 
   // Categories
   if (modrinthCategories.value.length > 0) {
@@ -328,10 +344,9 @@ const modrinthGroups = computed(() => {
           return aText.localeCompare(bText)
         })
         .map(c => ({
-          value: c.name,
+          id: c.name,
           text: t(`modrinth.categories.${c.name}`),
           icon: c.icon,
-          type: 'category' as const,
         })),
     })
   }
@@ -340,11 +355,11 @@ const modrinthGroups = computed(() => {
 })
 
 const isSelected = (cat: CategoryChipProps) => {
-  return selected.value.some(c => c.value === cat.value && c.type === cat.type)
+  return selected.value.some(c => c.id === cat.id)
 }
 
 const onSelect = (cat: CategoryChipProps) => {
-  const index = selected.value.findIndex(c => c.value === cat.value && c.type === cat.type)
+  const index = selected.value.findIndex(c => c.id === cat.id)
   if (index >= 0) {
     selected.value.splice(index, 1)
   } else {
@@ -358,24 +373,12 @@ const clearFilters = () => {
   page.value = 1
 }
 
-const hovered = ref<ExploreProject | undefined>(undefined)
-
-const onMouseEnter = (event: MouseEvent, mod: ExploreProject) => {
-  hovered.value = mod
-}
-
-const onMouseLeave = (mod: ExploreProject) => {
-  if (hovered.value === mod) {
-    hovered.value = undefined
-  }
-}
-
 const enterModrinth = (id: string) => {
   push(`/store/modrinth/${id}`)
 }
 
 // Text field behavior
-const searchTextField = useTextFieldBehavior()
+useTextFieldBehavior(searchTextField, searchTextFieldFocused)
 </script>
 
 <style scoped>
@@ -478,17 +481,22 @@ const searchTextField = useTextFieldBehavior()
 }
 
 .store-input :deep(.v-input__control) {
-  min-height: 48px !important;
-  height: 48px !important;
+  min-height: 40px !important;
+  height: 40px !important;
 }
 
 .store-input :deep(.v-input__slot) {
-  min-height: 48px !important;
-  padding: 0 16px !important;
+  min-height: 40px !important;
+  padding: 0 12px !important;
 }
 
 .store-input :deep(input) {
-  padding: 12px 0 !important;
+  padding: 10px 0 !important;
+  font-size: 14px !important;
+}
+
+.store-input :deep(.v-select__selections) {
+  font-size: 14px !important;
 }
 
 .bg-mc-store {

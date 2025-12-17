@@ -14,7 +14,7 @@ import { kSWRVConfig } from '@/composables/swrvConfig'
 import { useTasks } from '@/composables/task'
 import { clientModrinthV2 } from '@/util/clients'
 import { injection } from '@/util/inject'
-import { TaskState, ProjectMapping, ProjectMappingServiceKey } from '@xmcl/runtime-api'
+import { TaskState, ProjectMapping, ProjectMappingServiceKey, InstanceInstallServiceKey } from '@xmcl/runtime-api'
 import useSWRV from 'swrv'
 import { useI18nSearchFlights } from '@/composables/flights'
 import { useAutoI18nCommunityContent } from '@/composables/i18n'
@@ -138,13 +138,55 @@ const { versions, error } = useModrinthVersions(computed(() => props.id))
 
 const _installing = ref(false)
 const { notify } = useNotifier()
-const onInstall = (v: StoreProjectVersion) => {
+const { installInstanceFiles } = useService(InstanceInstallServiceKey)
+
+const onInstall = async (v: StoreProjectVersion) => {
   _installing.value = true
-  installModpack({ projectId: proj.value!.id, versionId: v.id, icon: project.value?.iconUrl, market: 0 }).catch((e) => {
+
+  try {
+    const projectType = proj.value?.project_type
+
+    // Check if it's a modpack or a mod
+    if (projectType === 'modpack') {
+      // Install as modpack
+      await installModpack({ projectId: proj.value!.id, versionId: v.id, icon: project.value?.iconUrl, market: 0 })
+    } else {
+      // Install as mod to the current instance's mods folder
+      if (!selectedInstance.value) {
+        notify({ level: 'error', title: t('error.noInstanceSelected') })
+        return
+      }
+
+      // Get the version details
+      const version = versions.value.find(ver => ver.id === v.id)
+      if (!version) {
+        notify({ level: 'error', title: t('error.versionNotFound') })
+        return
+      }
+
+      // Install the mod file to the instance's mods folder
+      await installInstanceFiles({
+        path: selectedInstance.value,
+        files: [{
+          path: `mods/${version.files[0]?.filename || v.name}`,
+          downloads: version.files[0]?.url ? [version.files[0].url] : [],
+          hashes: version.files[0]?.hashes || {},
+          size: version.files[0]?.size || 0,
+          modrinth: {
+            projectId: proj.value!.id,
+            versionId: v.id,
+          },
+        }],
+        oldFiles: [],
+      })
+
+      notify({ level: 'success', title: t('install.success') })
+    }
+  } catch (e: any) {
     notify({ level: 'error', title: e.message })
-  }).finally(() => {
+  } finally {
     _installing.value = false
-  })
+  }
 }
 
 const { instances, selectedInstance } = injection(kInstances)
